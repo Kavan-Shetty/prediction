@@ -6,7 +6,7 @@ export async function fetchGroups() {
   return res.json();
 }
 
-export async function createGroup(name: str) {
+export async function createGroup(name: string) {
   const res = await fetch(`${BASE_URL}/groups`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -16,7 +16,7 @@ export async function createGroup(name: str) {
   return res.json();
 }
 
-export async function joinGroup(invite_code: str) {
+export async function joinGroup(invite_code: string) {
   const res = await fetch(`${BASE_URL}/groups/join`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -26,13 +26,13 @@ export async function joinGroup(invite_code: str) {
   return res.json();
 }
 
-export async function fetchGroupMarkets(group_id: str) {
+export async function fetchGroupMarkets(group_id: string) {
   const res = await fetch(`${BASE_URL}/markets/group/${group_id}`);
   if (!res.ok) throw new Error('Failed to fetch markets');
   return res.json();
 }
 
-export async function createMarket(group_id: str, question: str, outcomes: { text: string }[]) {
+export async function createMarket(group_id: string, question: string, outcomes: { text: string }[]) {
   const res = await fetch(`${BASE_URL}/markets`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -42,13 +42,13 @@ export async function createMarket(group_id: str, question: str, outcomes: { tex
   return res.json();
 }
 
-export async function fetchMarketDetail(market_id: str) {
+export async function fetchMarketDetail(market_id: string) {
   const res = await fetch(`${BASE_URL}/markets/detail/${market_id}`);
   if (!res.ok) throw new Error('Failed to fetch market details');
   return res.json();
 }
 
-export async function placeTrade(market_id: str, outcome_id: str, amount: number) {
+export async function placeTrade(market_id: string, outcome_id: string, amount: number) {
   const res = await fetch(`${BASE_URL}/trades`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -58,7 +58,7 @@ export async function placeTrade(market_id: str, outcome_id: str, amount: number
   return res.json();
 }
 
-export async function deleteMarket(market_id: str) {
+export async function deleteMarket(market_id: string) {
   const res = await fetch(`${BASE_URL}/markets/${market_id}`, {
     method: 'DELETE'
   });
