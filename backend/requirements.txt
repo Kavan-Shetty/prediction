@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+supabase
+pydantic
+pydantic-settings
+python-dotenv
+python-multipart
+scipy
+numpy
+laspy
+lazrs
