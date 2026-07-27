@@ -1,6 +1,6 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { cn } from '../lib/utils';
-import { Trophy, Users, User, Flame, Globe, Lock, Sparkles, Gift } from 'lucide-react';
+import { Trophy, Users, User, Flame, Globe, Lock, Sparkles, Gift, Newspaper } from 'lucide-react';
 
 export function Layout() {
   const location = useLocation();
@@ -8,6 +8,7 @@ export function Layout() {
 
   const navItems = [
     { name: 'Public Exchange', path: '/explore', icon: Globe, badge: '50 NATIONS' },
+    { name: 'News Oracle', path: '/news', icon: Newspaper, badge: 'LIVE AI' },
     { name: 'Private Groups', path: '/groups', icon: Lock, badge: 'SYNDICATES' },
     { name: 'Leaderboard', path: '/leaderboard', icon: Trophy },
     { name: 'VIP & Gifts', path: '/profile', icon: Gift, badge: 'NEW' },
@@ -35,6 +36,7 @@ export function Layout() {
             const Icon = item.icon;
             const isActive = currentPath.startsWith(item.path);
             const isVip = item.name.includes('VIP');
+            const isNews = item.name.includes('News');
             return (
               <Link
                 key={item.name}
@@ -45,15 +47,23 @@ export function Layout() {
                     ? "bg-primary text-primary-foreground border-primary shadow-sm" 
                     : isVip 
                       ? "bg-purple-500/10 text-purple-400 border-purple-500/30 hover:bg-purple-500/20"
-                      : "bg-transparent text-muted-foreground border-transparent hover:bg-muted/30 hover:text-foreground"
+                      : isNews
+                        ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/20"
+                        : "bg-transparent text-muted-foreground border-transparent hover:bg-muted/30 hover:text-foreground"
                 )}
               >
-                <Icon className={cn("w-4 h-4", isVip && !isActive && "text-purple-400 animate-pulse")} />
+                <Icon className={cn("w-4 h-4", (isVip || isNews) && !isActive && "animate-pulse")} />
                 <span>{item.name}</span>
                 {item.badge && (
                   <span className={cn(
                     "text-[9px] px-1.5 py-0.5 rounded font-mono uppercase tracking-wider font-extrabold",
-                    isActive ? "bg-black/20 text-primary-foreground" : isVip ? "bg-purple-500/20 text-purple-300" : "bg-muted text-muted-foreground"
+                    isActive 
+                      ? "bg-black/20 text-primary-foreground" 
+                      : isVip 
+                        ? "bg-purple-500/20 text-purple-300" 
+                        : isNews
+                          ? "bg-emerald-500/20 text-emerald-300"
+                          : "bg-muted text-muted-foreground"
                   )}>
                     {item.badge}
                   </span>
@@ -64,9 +74,9 @@ export function Layout() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link to="/profile" className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-purple-500/15 to-indigo-500/15 border border-purple-500/30 text-xs font-extrabold text-purple-300 hover:border-purple-500/60 transition-all shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-purple-400" />
-            <span>VIP Tiers ($0-$100)</span>
+          <Link to="/news" className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-xs font-extrabold text-emerald-400 hover:border-emerald-500/60 transition-all shadow-2xs">
+            <Newspaper className="w-3.5 h-3.5" />
+            <span>📰 Live News Oracle</span>
           </Link>
           
           <div className="hidden sm:flex flex-col items-end mr-1">
@@ -92,17 +102,24 @@ export function Layout() {
              const Icon = item.icon;
              const isActive = currentPath.startsWith(item.path);
              const isVip = item.name.includes('VIP');
+             const isNews = item.name.includes('News');
              return (
                <Link
                  key={item.name}
                  to={item.path}
                  className={cn(
-                   "flex flex-col items-center gap-1 p-1.5 rounded-lg transition-colors flex-1 text-center",
-                   isActive ? "text-primary font-bold" : isVip ? "text-purple-400 font-bold" : "text-muted-foreground hover:text-foreground"
+                   "flex flex-col items-center gap-1 p-1 rounded-lg transition-colors flex-1 text-center",
+                   isActive 
+                     ? "text-primary font-bold" 
+                     : isVip 
+                       ? "text-purple-400 font-bold" 
+                       : isNews
+                         ? "text-emerald-400 font-bold"
+                         : "text-muted-foreground hover:text-foreground"
                  )}
                >
                  <Icon className="w-5 h-5" />
-                 <span className="text-[10px] font-bold leading-tight">{item.name}</span>
+                 <span className="text-[9px] font-bold leading-tight truncate w-full">{item.name}</span>
                </Link>
              )
           })}
