@@ -1,6 +1,91 @@
 import { useState } from 'react';
-import { User, LogOut, Flame, History, Gift, Tv, Users, ShieldAlert, CheckCircle2, Copy, Sparkles, TrendingUp } from 'lucide-react';
+import { User, LogOut, Flame, History, Gift, Tv, Users, ShieldAlert, CheckCircle2, Copy, Sparkles, TrendingUp, ShieldCheck, Zap, Crown, Award, Send, Check } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { Input } from '../components/ui/Input';
+import { Dialog } from '../components/ui/Dialog';
+
+// 5-Tier Fair Play Subscription Ladder ($0 to $100)
+const VIP_TIERS = [
+  {
+    id: 'free',
+    name: '🟢 Free-to-Play',
+    price: '$0 / mo',
+    tagline: '100% Competitive Equality',
+    color: 'text-emerald-500',
+    border: 'border-border/60',
+    bg: 'bg-card',
+    features: [
+      'Same starting bankroll & odds as all tiers',
+      'Access all 13 Categories & 50 Nations',
+      'Claim Daily +$100 Virtual Cash Refill',
+      'Join up to 3 Private Friend Groups'
+    ]
+  },
+  {
+    id: 'pro',
+    name: '🔵 Pro Analyst',
+    price: '$9.99 / mo',
+    tagline: 'Personal Journal & OLED Themes',
+    color: 'text-blue-500',
+    border: 'border-blue-500/40',
+    bg: 'bg-blue-500/5',
+    popular: false,
+    features: [
+      'Personal Trading Win-Rate Journal',
+      'Custom UI Themes (OLED Black / Cyberpunk)',
+      '⭐️ Pro Forecaster profile badge',
+      'Zero competitive trading advantage'
+    ]
+  },
+  {
+    id: 'syndicate',
+    name: '🟣 Syndicate Host',
+    price: '$29.99 / mo',
+    tagline: 'For Community & Club Leaders',
+    color: 'text-purple-500',
+    border: 'border-purple-500/50',
+    bg: 'bg-purple-500/10',
+    popular: true,
+    features: [
+      'Host Private Groups up to 250 Members',
+      'Vanity invite link (predictor.io/join/club)',
+      'Export group rankings to Excel / CSV',
+      'Custom group banners and logos'
+    ]
+  },
+  {
+    id: 'league',
+    name: '🟠 League Master',
+    price: '$49.99 / mo',
+    tagline: 'Automated Discord & Slack Bot',
+    color: 'text-amber-500',
+    border: 'border-amber-500/50',
+    bg: 'bg-amber-500/10',
+    popular: false,
+    features: [
+      'Host Syndicates up to 1,500 Members',
+      '🤖 Automated Discord & Slack Webhook Bot',
+      '🏆 Multi-Round Seasonal Tournaments',
+      'Custom group chat emojis and titles'
+    ]
+  },
+  {
+    id: 'enterprise',
+    name: '🟡 Enterprise Host',
+    price: '$99.99 / mo',
+    tagline: 'The $100 Large Organization Tier',
+    color: 'text-yellow-500',
+    border: 'border-yellow-500/50',
+    bg: 'bg-yellow-500/10',
+    popular: false,
+    features: [
+      'Host Tournaments with 5,000+ Members',
+      'White-Label Embed Widget for websites/blogs',
+      'Design custom profile badges for members',
+      '💎 Diamond Founding Host Profile Badge'
+    ]
+  }
+];
 
 export function Profile() {
   const [balance, setBalance] = useState(450);
@@ -10,6 +95,13 @@ export function Profile() {
   const [adSuccess, setAdSuccess] = useState<string | null>(null);
   const [copiedReferral, setCopiedReferral] = useState(false);
   const [bailoutClaimed, setBailoutClaimed] = useState(false);
+
+  // VIP & Gifting State
+  const [activeVipTier, setActiveVipTier] = useState('free');
+  const [isGiftingOpen, setIsGiftingOpen] = useState(false);
+  const [giftRecipient, setGiftRecipient] = useState('');
+  const [giftTier, setGiftTier] = useState('league');
+  const [giftMessage, setGiftMessage] = useState('Congratulations on winning our prediction league! Enjoy your subscription prize!');
 
   // 1. Claim Daily Login Bonus
   const handleClaimDaily = () => {
@@ -27,7 +119,6 @@ export function Profile() {
     setWatchingAd(true);
     setAdSuccess(null);
     
-    // Simulate 3-second sponsor ad play
     setTimeout(() => {
       setWatchingAd(false);
       setBalance(prev => prev + 250);
@@ -56,20 +147,50 @@ export function Profile() {
     setTimeout(() => setAdSuccess(null), 4000);
   };
 
+  // 5. Upgrade VIP Subscription
+  const handleUpgradeVip = (tierId: string, tierName: string) => {
+    setActiveVipTier(tierId);
+    setAdSuccess(`💎 CONGRATULATIONS! You are now subscribed to "${tierName}"! Zero pay-to-win enforced; all community organizer tools unlocked!`);
+    setTimeout(() => setAdSuccess(null), 6000);
+  };
+
+  // 6. Send Gift Subscription
+  const handleSendGift = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!giftRecipient.trim()) return;
+    
+    const selectedTierMeta = VIP_TIERS.find(t => t.id === giftTier) || VIP_TIERS[3];
+    setIsGiftingOpen(false);
+    setAdSuccess(`🎁 GIFT SENT! You successfully gifted a "${selectedTierMeta.name}" (${selectedTierMeta.price}) subscription to @${giftRecipient}! They have been notified!`);
+    setGiftRecipient('');
+    setTimeout(() => setAdSuccess(null), 7000);
+  };
+
+  const currentVipMeta = VIP_TIERS.find(t => t.id === activeVipTier) || VIP_TIERS[0];
+
   return (
-    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-4xl mx-auto">
+    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-5xl mx-auto">
       {/* Profile Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-border pb-6">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-mono font-bold uppercase tracking-wider mb-1">
-            <Sparkles className="w-3.5 h-3.5" /> Pro Forecaster • Level 4
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-mono font-bold uppercase tracking-wider mb-1">
+            <Sparkles className="w-3.5 h-3.5" /> Pro Forecaster • {currentVipMeta.name}
           </div>
-          <h1 className="text-3xl font-black tracking-tight text-foreground">Portfolio & Rewards Hub</h1>
+          <h1 className="text-3xl font-black tracking-tight text-foreground">Portfolio, VIP Tiers & Gifting Hub</h1>
         </div>
-        <Button variant="outline" size="sm" className="gap-2 text-muted-foreground hover:text-foreground">
-          <LogOut className="w-4 h-4" />
-          Log Out
-        </Button>
+        <div className="flex gap-2">
+          <Button 
+            onClick={() => setIsGiftingOpen(true)} 
+            className="gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-xs shadow-md"
+          >
+            <Gift className="w-4 h-4" />
+            Gift VIP Subscription
+          </Button>
+          <Button variant="outline" size="sm" className="gap-2 text-muted-foreground hover:text-foreground">
+            <LogOut className="w-4 h-4" />
+            Log Out
+          </Button>
+        </div>
       </div>
 
       {/* Success / Notification Banner */}
@@ -89,14 +210,19 @@ export function Profile() {
             </div>
             <div>
               <h2 className="text-2xl font-bold text-foreground">Kavan (You)</h2>
-              <p className="text-xs text-muted-foreground font-medium">Syndicate Leader • 14 Predictions Placed</p>
-              <div className="flex items-center gap-2 mt-2">
-                <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-500 text-[10px] font-mono font-bold uppercase border border-emerald-500/30">
-                  Verified Account
+              <p className="text-xs text-muted-foreground font-medium">Syndicate Leader • Active Plan: <span className="text-primary font-bold">{currentVipMeta.name}</span></p>
+              <div className="flex flex-wrap items-center gap-2 mt-2">
+                <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-500 text-[10px] font-mono font-bold uppercase border border-emerald-500/30 flex items-center gap-1">
+                  <ShieldCheck className="w-3 h-3" /> 100% Fair Play
                 </span>
                 <span className="px-2 py-0.5 rounded bg-purple-500/10 text-purple-500 text-[10px] font-mono font-bold uppercase border border-purple-500/30">
                   Top 5% Analyst
                 </span>
+                {activeVipTier !== 'free' && (
+                  <span className="px-2 py-0.5 rounded bg-amber-500/15 text-amber-500 text-[10px] font-mono font-extrabold uppercase border border-amber-500/30 flex items-center gap-1">
+                    <Crown className="w-3 h-3" /> VIP Subscriber
+                  </span>
+                )}
               </div>
             </div>
           </div>
@@ -118,8 +244,77 @@ export function Profile() {
         </div>
       </div>
 
+      {/* NEW: 5-Tier Fair Play VIP Subscription Ladder ($0 to $100) */}
+      <div className="space-y-4 pt-2">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2">
+          <div>
+            <div className="inline-flex items-center gap-1.5 text-xs font-extrabold text-purple-500 uppercase tracking-wider mb-1">
+              <Crown className="w-4 h-4" /> 100% Fair Play • Zero Pay-To-Win Enforced
+            </div>
+            <h3 className="text-2xl font-black text-foreground">
+              VIP Tiers & Organizer Superpowers ($0 to $100/mo)
+            </h3>
+            <p className="text-xs text-muted-foreground font-medium max-w-2xl">
+              Paying never gives trading or cash advantages. Upgrading gives you administrative superpowers to host massive prediction leagues, automated Discord/Slack bots, and seasonal tournaments!
+            </p>
+          </div>
+          <Button onClick={() => setIsGiftingOpen(true)} variant="outline" className="text-xs font-bold border-purple-500/40 text-purple-400 hover:bg-purple-500/10 flex items-center gap-1.5">
+            <Gift className="w-3.5 h-3.5" /> Gift Tier to Tournament Winner
+          </Button>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          {VIP_TIERS.map((tier) => {
+            const isCurrent = activeVipTier === tier.id;
+            return (
+              <div 
+                key={tier.id}
+                className={`border rounded-2xl p-4 sm:p-5 flex flex-col justify-between transition-all relative overflow-hidden ${tier.border} ${tier.bg} ${
+                  isCurrent ? 'ring-2 ring-primary shadow-lg scale-[1.02]' : 'hover:border-foreground/40'
+                }`}
+              >
+                {tier.popular && (
+                  <div className="absolute top-0 right-0 bg-gradient-to-l from-purple-500 to-indigo-500 text-white text-[9px] font-extrabold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-xs">
+                    Popular
+                  </div>
+                )}
+                
+                <div>
+                  <div className={`text-sm font-black mb-0.5 ${tier.color}`}>{tier.name}</div>
+                  <div className="text-xl font-mono font-black text-foreground mb-1">{tier.price}</div>
+                  <div className="text-[10px] text-muted-foreground font-semibold mb-4 pb-3 border-b border-border/40">{tier.tagline}</div>
+                  
+                  <ul className="space-y-2 mb-6">
+                    {tier.features.map((feat, i) => (
+                      <li key={i} className="text-xs text-foreground/90 flex items-start gap-2 font-medium leading-tight">
+                        <Check className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${tier.color}`} />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <Button
+                  onClick={() => handleUpgradeVip(tier.id, tier.name)}
+                  disabled={isCurrent}
+                  className={`w-full text-xs font-bold h-9 ${
+                    isCurrent 
+                      ? 'bg-success text-success-foreground cursor-default' 
+                      : tier.id === 'league' || tier.id === 'enterprise' || tier.id === 'syndicate'
+                        ? 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm'
+                        : 'bg-muted/60 hover:bg-muted text-foreground'
+                  }`}
+                >
+                  {isCurrent ? '✓ Current Active Plan' : `Upgrade to ${tier.name.split(' ')[1] || tier.name}`}
+                </Button>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
       {/* Free Virtual Cash Refill / Daily Reward Engine */}
-      <div className="space-y-4">
+      <div className="space-y-4 pt-4 border-t border-border/60">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2">
           <div>
             <h3 className="text-xl font-extrabold text-foreground flex items-center gap-2">
@@ -131,7 +326,7 @@ export function Profile() {
             </p>
           </div>
           <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
-            100% Free-to-Play
+            100% Free-to-Play Refills
           </span>
         </div>
 
@@ -263,6 +458,72 @@ export function Profile() {
           </div>
         </div>
       </div>
+
+      {/* Gift VIP Subscription Modal */}
+      <Dialog
+        isOpen={isGiftingOpen}
+        onClose={() => setIsGiftingOpen(false)}
+        title="🎁 Gift a VIP Subscription"
+        description="The ultimate legal tournament prize! Reward tournament winners or syndicate friends with organizer superpowers."
+      >
+        <form onSubmit={handleSendGift} className="space-y-4 pt-2">
+          <div className="space-y-1.5">
+            <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Recipient Username / Friend Tag</label>
+            <Input 
+              placeholder="e.g. @Alex_Trader, @Sarah_Crypto, or Tournament_Winner" 
+              value={giftRecipient}
+              onChange={(e) => setGiftRecipient(e.target.value)}
+              required
+              className="h-11 font-semibold text-sm"
+            />
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Select VIP Tier to Gift</label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {VIP_TIERS.filter(t => t.id !== 'free').map(tier => {
+                const isSel = giftTier === tier.id;
+                return (
+                  <button
+                    key={tier.id}
+                    type="button"
+                    onClick={() => setGiftTier(tier.id)}
+                    className={`p-3 rounded-xl border text-left transition-all ${
+                      isSel 
+                        ? 'bg-purple-500/15 border-purple-500 text-purple-300 font-bold shadow-2xs scale-[1.02]' 
+                        : 'bg-muted/10 border-border/60 text-muted-foreground hover:border-border hover:text-foreground'
+                    }`}
+                  >
+                    <div className="text-xs font-black text-foreground">{tier.name}</div>
+                    <div className="font-mono text-xs font-bold text-primary mt-0.5">{tier.price}</div>
+                    <div className="text-[10px] text-muted-foreground truncate mt-1">{tier.tagline}</div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Celebratory Gift Message</label>
+            <textarea 
+              value={giftMessage}
+              onChange={(e) => setGiftMessage(e.target.value)}
+              rows={2}
+              className="w-full p-3 rounded-xl bg-background border border-border text-xs font-medium focus:outline-none focus:border-primary resize-none"
+            />
+          </div>
+
+          <div className="pt-2 flex justify-end gap-2 border-t border-border/40">
+            <Button type="button" variant="outline" onClick={() => setIsGiftingOpen(false)} className="h-10 px-5 font-semibold text-xs">
+              Cancel
+            </Button>
+            <Button type="submit" disabled={!giftRecipient.trim()} className="h-10 px-6 font-bold bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-xs shadow-md flex items-center gap-2">
+              <Send className="w-3.5 h-3.5" />
+              Send Gift Subscription
+            </Button>
+          </div>
+        </form>
+      </Dialog>
     </div>
   );
 }
