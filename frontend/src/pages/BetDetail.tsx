@@ -432,8 +432,10 @@ export function BetDetail() {
               )}
 
               {aiExplanation && (
-                <div className="text-sm font-medium text-foreground leading-relaxed relative z-10 bg-background/50 p-3.5 rounded-xl border border-border/60 shadow-inner">
-                  {aiExplanation}
+                <div className="text-sm font-medium text-foreground leading-relaxed relative z-10 bg-background/50 p-3.5 rounded-xl border border-border/60 shadow-inner space-y-2">
+                  {aiExplanation.split('\n').map((paragraph, idx) => (
+                    <p key={idx}>{paragraph}</p>
+                  ))}
                 </div>
               )}
             </div>

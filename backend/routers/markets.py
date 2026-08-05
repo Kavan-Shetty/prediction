@@ -265,10 +265,10 @@ def get_oracle_insight(req: OracleRequest):
         try:
             from anthropic import Anthropic
             client = Anthropic(api_key=anthropic_key)
-            prompt = f"You are an AI Oracle for a prediction market. In exactly 3 short sentences, explain why the odds for the market '{req.market_title}' might be volatile today. Be analytical and objective."
+            prompt = f"You are an AI Oracle for a prediction market. The user is asking about the market: '{req.market_title}'. Provide a comprehensive, analytical insight (like an expert chatbot) explaining what real-world factors might influence this market, the key variables to watch, and why the odds might shift today. Use 2-3 short paragraphs."
             response = client.messages.create(
                 model="claude-3-5-sonnet-20241022",
-                max_tokens=150,
+                max_tokens=450,
                 temperature=0.7,
                 messages=[{"role": "user", "content": prompt}]
             )
