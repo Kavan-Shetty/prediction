@@ -1,0 +1,2642 @@
+{
+  "market-gen-0": {
+    "id": "market-gen-0",
+    "title": "Will Disney acquires crypto spot ETF in surpr happen before Dec 31?",
+    "category": "Entertainment",
+    "region": "USA & Americas",
+    "volume": "$4820,000",
+    "closingIn": "3m 20d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-0-yes",
+        "text": "Yes",
+        "prob": "85%",
+        "price": "85¢",
+        "yesPrice": 0.85,
+        "noPrice": 0.15,
+        "yesShares": "12,000",
+        "noShares": "42,000",
+        "change": "-1.3%"
+      },
+      {
+        "id": "c-market-gen-0-no",
+        "text": "No",
+        "prob": "15%",
+        "price": "15¢",
+        "yesPrice": 0.15,
+        "noPrice": 0.85,
+        "yesShares": "13,000",
+        "noShares": "31,000",
+        "change": "-1.3%"
+      }
+    ]
+  },
+  "market-gen-1": {
+    "id": "market-gen-1",
+    "title": "Will Election record revenue tightened in sur happen before Dec 31?",
+    "category": "Politics & Law",
+    "region": "Global",
+    "volume": "$3231,000",
+    "closingIn": "8m 5d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-1-yes",
+        "text": "Yes",
+        "prob": "38%",
+        "price": "38¢",
+        "yesPrice": 0.38,
+        "noPrice": 0.62,
+        "yesShares": "11,000",
+        "noShares": "47,000",
+        "change": "-2.3%"
+      },
+      {
+        "id": "c-market-gen-1-no",
+        "text": "No",
+        "prob": "62%",
+        "price": "62¢",
+        "yesPrice": 0.62,
+        "noPrice": 0.38,
+        "yesShares": "41,000",
+        "noShares": "23,000",
+        "change": "-2.3%"
+      }
+    ]
+  },
+  "market-gen-2": {
+    "id": "market-gen-2",
+    "title": "Will Election interest rate hike tightened in happen before Dec 31?",
+    "category": "Politics & Law",
+    "region": "USA & Americas",
+    "volume": "$1125,000",
+    "closingIn": "4m 12d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-2-yes",
+        "text": "Yes",
+        "prob": "57%",
+        "price": "57¢",
+        "yesPrice": 0.57,
+        "noPrice": 0.43,
+        "yesShares": "49,000",
+        "noShares": "17,000",
+        "change": "-4.1%"
+      },
+      {
+        "id": "c-market-gen-2-no",
+        "text": "No",
+        "prob": "43%",
+        "price": "43¢",
+        "yesPrice": 0.43,
+        "noPrice": 0.57,
+        "yesShares": "38,000",
+        "noShares": "33,000",
+        "change": "-4.1%"
+      }
+    ]
+  },
+  "market-gen-3": {
+    "id": "market-gen-3",
+    "title": "Will Senate passes record revenue in surprise happen before Dec 31?",
+    "category": "Politics & Law",
+    "region": "India & South Asia",
+    "volume": "$790,000",
+    "closingIn": "9m 10d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-3-yes",
+        "text": "Yes",
+        "prob": "17%",
+        "price": "17¢",
+        "yesPrice": 0.17,
+        "noPrice": 0.83,
+        "yesShares": "16,000",
+        "noShares": "20,000",
+        "change": "+9.2%"
+      },
+      {
+        "id": "c-market-gen-3-no",
+        "text": "No",
+        "prob": "83%",
+        "price": "83¢",
+        "yesPrice": 0.83,
+        "noPrice": 0.17,
+        "yesShares": "30,000",
+        "noShares": "23,000",
+        "change": "+9.2%"
+      }
+    ]
+  },
+  "market-gen-4": {
+    "id": "market-gen-4",
+    "title": "Will EU Parliament debates antitrust lawsuit  happen before Dec 31?",
+    "category": "Politics & Law",
+    "region": "Asia-Pacific",
+    "volume": "$4621,000",
+    "closingIn": "10m 4d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-4-yes",
+        "text": "Yes",
+        "prob": "27%",
+        "price": "27¢",
+        "yesPrice": 0.27,
+        "noPrice": 0.73,
+        "yesShares": "41,000",
+        "noShares": "15,000",
+        "change": "+7.3%"
+      },
+      {
+        "id": "c-market-gen-4-no",
+        "text": "No",
+        "prob": "73%",
+        "price": "73¢",
+        "yesPrice": 0.73,
+        "noPrice": 0.27,
+        "yesShares": "45,000",
+        "noShares": "21,000",
+        "change": "+7.3%"
+      }
+    ]
+  },
+  "market-gen-5": {
+    "id": "market-gen-5",
+    "title": "Will Bitcoin hits gaming console in surprise  happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "USA & Americas",
+    "volume": "$1099,000",
+    "closingIn": "6m 2d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-5-yes",
+        "text": "Yes",
+        "prob": "63%",
+        "price": "63¢",
+        "yesPrice": 0.63,
+        "noPrice": 0.37,
+        "yesShares": "46,000",
+        "noShares": "15,000",
+        "change": "-8.7%"
+      },
+      {
+        "id": "c-market-gen-5-no",
+        "text": "No",
+        "prob": "37%",
+        "price": "37¢",
+        "yesPrice": 0.37,
+        "noPrice": 0.63,
+        "yesShares": "40,000",
+        "noShares": "25,000",
+        "change": "-8.7%"
+      }
+    ]
+  },
+  "market-gen-6": {
+    "id": "market-gen-6",
+    "title": "Will Box office major software update shatter happen before Dec 31?",
+    "category": "Entertainment",
+    "region": "Europe & UK",
+    "volume": "$3938,000",
+    "closingIn": "1m 3d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-6-yes",
+        "text": "Yes",
+        "prob": "60%",
+        "price": "60¢",
+        "yesPrice": 0.6,
+        "noPrice": 0.4,
+        "yesShares": "27,000",
+        "noShares": "27,000",
+        "change": "-2.1%"
+      },
+      {
+        "id": "c-market-gen-6-no",
+        "text": "No",
+        "prob": "40%",
+        "price": "40¢",
+        "yesPrice": 0.4,
+        "noPrice": 0.6,
+        "yesShares": "15,000",
+        "noShares": "31,000",
+        "change": "-2.1%"
+      }
+    ]
+  },
+  "market-gen-7": {
+    "id": "market-gen-7",
+    "title": "Will Ethereum upgrades record revenue in surp happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "Global",
+    "volume": "$2805,000",
+    "closingIn": "5m 15d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-7-yes",
+        "text": "Yes",
+        "prob": "85%",
+        "price": "85¢",
+        "yesPrice": 0.85,
+        "noPrice": 0.15,
+        "yesShares": "20,000",
+        "noShares": "10,000",
+        "change": "+6.5%"
+      },
+      {
+        "id": "c-market-gen-7-no",
+        "text": "No",
+        "prob": "15%",
+        "price": "15¢",
+        "yesPrice": 0.15,
+        "noPrice": 0.85,
+        "yesShares": "37,000",
+        "noShares": "42,000",
+        "change": "+6.5%"
+      }
+    ]
+  },
+  "market-gen-8": {
+    "id": "market-gen-8",
+    "title": "Will SEC approves interest rate hike in surpr happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "India & South Asia",
+    "volume": "$4921,000",
+    "closingIn": "1m 14d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-8-yes",
+        "text": "Yes",
+        "prob": "55%",
+        "price": "55¢",
+        "yesPrice": 0.55,
+        "noPrice": 0.45,
+        "yesShares": "23,000",
+        "noShares": "19,000",
+        "change": "+9.1%"
+      },
+      {
+        "id": "c-market-gen-8-no",
+        "text": "No",
+        "prob": "45%",
+        "price": "45¢",
+        "yesPrice": 0.45,
+        "noPrice": 0.55,
+        "yesShares": "41,000",
+        "noShares": "11,000",
+        "change": "+9.1%"
+      }
+    ]
+  },
+  "market-gen-9": {
+    "id": "market-gen-9",
+    "title": "Will Senate passes antitrust lawsuit in surpr happen before Dec 31?",
+    "category": "Politics & Law",
+    "region": "Global",
+    "volume": "$2234,000",
+    "closingIn": "1m 8d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-9-yes",
+        "text": "Yes",
+        "prob": "82%",
+        "price": "82¢",
+        "yesPrice": 0.82,
+        "noPrice": 0.18,
+        "yesShares": "27,000",
+        "noShares": "45,000",
+        "change": "-2.0%"
+      },
+      {
+        "id": "c-market-gen-9-no",
+        "text": "No",
+        "prob": "18%",
+        "price": "18¢",
+        "yesPrice": 0.18,
+        "noPrice": 0.82,
+        "yesShares": "43,000",
+        "noShares": "15,000",
+        "change": "-2.0%"
+      }
+    ]
+  },
+  "market-gen-10": {
+    "id": "market-gen-10",
+    "title": "Will OpenAI releases climate regulation in su happen before Dec 31?",
+    "category": "AI & Tech",
+    "region": "Europe & UK",
+    "volume": "$4736,000",
+    "closingIn": "5m 3d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-10-yes",
+        "text": "Yes",
+        "prob": "30%",
+        "price": "30¢",
+        "yesPrice": 0.3,
+        "noPrice": 0.7,
+        "yesShares": "19,000",
+        "noShares": "14,000",
+        "change": "-1.7%"
+      },
+      {
+        "id": "c-market-gen-10-no",
+        "text": "No",
+        "prob": "70%",
+        "price": "70¢",
+        "yesPrice": 0.7,
+        "noPrice": 0.3,
+        "yesShares": "25,000",
+        "noShares": "30,000",
+        "change": "-1.7%"
+      }
+    ]
+  },
+  "market-gen-11": {
+    "id": "market-gen-11",
+    "title": "Will CSK wins crypto spot ETF in surprise mov happen before Dec 31?",
+    "category": "Sports",
+    "region": "USA & Americas",
+    "volume": "$3715,000",
+    "closingIn": "5m 13d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-11-yes",
+        "text": "Yes",
+        "prob": "26%",
+        "price": "26¢",
+        "yesPrice": 0.26,
+        "noPrice": 0.74,
+        "yesShares": "26,000",
+        "noShares": "24,000",
+        "change": "+4.6%"
+      },
+      {
+        "id": "c-market-gen-11-no",
+        "text": "No",
+        "prob": "74%",
+        "price": "74¢",
+        "yesPrice": 0.74,
+        "noPrice": 0.26,
+        "yesShares": "31,000",
+        "noShares": "30,000",
+        "change": "+4.6%"
+      }
+    ]
+  },
+  "market-gen-12": {
+    "id": "market-gen-12",
+    "title": "Will Olympics gaming console debate in surpri happen before Dec 31?",
+    "category": "Sports",
+    "region": "USA & Americas",
+    "volume": "$182,000",
+    "closingIn": "8m 7d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-12-yes",
+        "text": "Yes",
+        "prob": "55%",
+        "price": "55¢",
+        "yesPrice": 0.55,
+        "noPrice": 0.45,
+        "yesShares": "18,000",
+        "noShares": "46,000",
+        "change": "-7.9%"
+      },
+      {
+        "id": "c-market-gen-12-no",
+        "text": "No",
+        "prob": "45%",
+        "price": "45¢",
+        "yesPrice": 0.45,
+        "noPrice": 0.55,
+        "yesShares": "42,000",
+        "noShares": "47,000",
+        "change": "-7.9%"
+      }
+    ]
+  },
+  "market-gen-13": {
+    "id": "market-gen-13",
+    "title": "Will RBI Governor addresses crypto spot ETF i happen before Dec 31?",
+    "category": "Economy & RBI",
+    "region": "Global",
+    "volume": "$4877,000",
+    "closingIn": "3m 11d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-13-yes",
+        "text": "Yes",
+        "prob": "64%",
+        "price": "64¢",
+        "yesPrice": 0.64,
+        "noPrice": 0.36,
+        "yesShares": "32,000",
+        "noShares": "40,000",
+        "change": "-3.3%"
+      },
+      {
+        "id": "c-market-gen-13-no",
+        "text": "No",
+        "prob": "36%",
+        "price": "36¢",
+        "yesPrice": 0.36,
+        "noPrice": 0.64,
+        "yesShares": "46,000",
+        "noShares": "47,000",
+        "change": "-3.3%"
+      }
+    ]
+  },
+  "market-gen-14": {
+    "id": "market-gen-14",
+    "title": "Will FIFA new AI model controversy in surpris happen before Dec 31?",
+    "category": "Sports",
+    "region": "USA & Americas",
+    "volume": "$964,000",
+    "closingIn": "8m 9d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-14-yes",
+        "text": "Yes",
+        "prob": "71%",
+        "price": "71¢",
+        "yesPrice": 0.71,
+        "noPrice": 0.29,
+        "yesShares": "25,000",
+        "noShares": "30,000",
+        "change": "-7.4%"
+      },
+      {
+        "id": "c-market-gen-14-no",
+        "text": "No",
+        "prob": "29%",
+        "price": "29¢",
+        "yesPrice": 0.29,
+        "noPrice": 0.71,
+        "yesShares": "12,000",
+        "noShares": "31,000",
+        "change": "-7.4%"
+      }
+    ]
+  },
+  "market-gen-15": {
+    "id": "market-gen-15",
+    "title": "Will OpenAI releases major software update in happen before Dec 31?",
+    "category": "AI & Tech",
+    "region": "USA & Americas",
+    "volume": "$2966,000",
+    "closingIn": "6m 13d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-15-yes",
+        "text": "Yes",
+        "prob": "71%",
+        "price": "71¢",
+        "yesPrice": 0.71,
+        "noPrice": 0.29,
+        "yesShares": "19,000",
+        "noShares": "44,000",
+        "change": "+6.9%"
+      },
+      {
+        "id": "c-market-gen-15-no",
+        "text": "No",
+        "prob": "29%",
+        "price": "29¢",
+        "yesPrice": 0.29,
+        "noPrice": 0.71,
+        "yesShares": "31,000",
+        "noShares": "49,000",
+        "change": "+6.9%"
+      }
+    ]
+  },
+  "market-gen-16": {
+    "id": "market-gen-16",
+    "title": "Will Anthropic upgrades gaming console in sur happen before Dec 31?",
+    "category": "AI & Tech",
+    "region": "Europe & UK",
+    "volume": "$1739,000",
+    "closingIn": "1m 20d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-16-yes",
+        "text": "Yes",
+        "prob": "60%",
+        "price": "60¢",
+        "yesPrice": 0.6,
+        "noPrice": 0.4,
+        "yesShares": "37,000",
+        "noShares": "39,000",
+        "change": "-7.6%"
+      },
+      {
+        "id": "c-market-gen-16-no",
+        "text": "No",
+        "prob": "40%",
+        "price": "40¢",
+        "yesPrice": 0.4,
+        "noPrice": 0.6,
+        "yesShares": "30,000",
+        "noShares": "42,000",
+        "change": "-7.6%"
+      }
+    ]
+  },
+  "market-gen-17": {
+    "id": "market-gen-17",
+    "title": "Will Inflation data reveals major software up happen before Dec 31?",
+    "category": "Economy & RBI",
+    "region": "USA & Americas",
+    "volume": "$4289,000",
+    "closingIn": "3m 21d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-17-yes",
+        "text": "Yes",
+        "prob": "36%",
+        "price": "36¢",
+        "yesPrice": 0.36,
+        "noPrice": 0.64,
+        "yesShares": "29,000",
+        "noShares": "44,000",
+        "change": "+6.6%"
+      },
+      {
+        "id": "c-market-gen-17-no",
+        "text": "No",
+        "prob": "64%",
+        "price": "64¢",
+        "yesPrice": 0.64,
+        "noPrice": 0.36,
+        "yesShares": "49,000",
+        "noShares": "10,000",
+        "change": "+6.6%"
+      }
+    ]
+  },
+  "market-gen-18": {
+    "id": "market-gen-18",
+    "title": "Will CSK wins record revenue in surprise move happen before Dec 31?",
+    "category": "Sports",
+    "region": "Europe & UK",
+    "volume": "$1221,000",
+    "closingIn": "5m 28d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-18-yes",
+        "text": "Yes",
+        "prob": "26%",
+        "price": "26¢",
+        "yesPrice": 0.26,
+        "noPrice": 0.74,
+        "yesShares": "19,000",
+        "noShares": "37,000",
+        "change": "-8.9%"
+      },
+      {
+        "id": "c-market-gen-18-no",
+        "text": "No",
+        "prob": "74%",
+        "price": "74¢",
+        "yesPrice": 0.74,
+        "noPrice": 0.26,
+        "yesShares": "23,000",
+        "noShares": "25,000",
+        "change": "-8.9%"
+      }
+    ]
+  },
+  "market-gen-19": {
+    "id": "market-gen-19",
+    "title": "Will RBI Governor addresses antitrust lawsuit happen before Dec 31?",
+    "category": "Economy & RBI",
+    "region": "India & South Asia",
+    "volume": "$3711,000",
+    "closingIn": "1m 27d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-19-yes",
+        "text": "Yes",
+        "prob": "78%",
+        "price": "78¢",
+        "yesPrice": 0.78,
+        "noPrice": 0.22,
+        "yesShares": "18,000",
+        "noShares": "16,000",
+        "change": "-0.3%"
+      },
+      {
+        "id": "c-market-gen-19-no",
+        "text": "No",
+        "prob": "22%",
+        "price": "22¢",
+        "yesPrice": 0.22,
+        "noPrice": 0.78,
+        "yesShares": "17,000",
+        "noShares": "20,000",
+        "change": "-0.3%"
+      }
+    ]
+  },
+  "market-gen-20": {
+    "id": "market-gen-20",
+    "title": "Will Real Madrid signs gaming console in surp happen before Dec 31?",
+    "category": "Sports",
+    "region": "USA & Americas",
+    "volume": "$253,000",
+    "closingIn": "4m 21d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-20-yes",
+        "text": "Yes",
+        "prob": "49%",
+        "price": "49¢",
+        "yesPrice": 0.49,
+        "noPrice": 0.51,
+        "yesShares": "29,000",
+        "noShares": "38,000",
+        "change": "+9.2%"
+      },
+      {
+        "id": "c-market-gen-20-no",
+        "text": "No",
+        "prob": "51%",
+        "price": "51¢",
+        "yesPrice": 0.51,
+        "noPrice": 0.49,
+        "yesShares": "22,000",
+        "noShares": "14,000",
+        "change": "+9.2%"
+      }
+    ]
+  },
+  "market-gen-21": {
+    "id": "market-gen-21",
+    "title": "Will Senate passes crypto spot ETF in surpris happen before Dec 31?",
+    "category": "Politics & Law",
+    "region": "India & South Asia",
+    "volume": "$1977,000",
+    "closingIn": "1m 22d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-21-yes",
+        "text": "Yes",
+        "prob": "15%",
+        "price": "15¢",
+        "yesPrice": 0.15,
+        "noPrice": 0.85,
+        "yesShares": "38,000",
+        "noShares": "27,000",
+        "change": "-2.7%"
+      },
+      {
+        "id": "c-market-gen-21-no",
+        "text": "No",
+        "prob": "85%",
+        "price": "85¢",
+        "yesPrice": 0.85,
+        "noPrice": 0.15,
+        "yesShares": "41,000",
+        "noShares": "44,000",
+        "change": "-2.7%"
+      }
+    ]
+  },
+  "market-gen-22": {
+    "id": "market-gen-22",
+    "title": "Will Election gaming console tightened in sur happen before Dec 31?",
+    "category": "Politics & Law",
+    "region": "Europe & UK",
+    "volume": "$3058,000",
+    "closingIn": "4m 12d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-22-yes",
+        "text": "Yes",
+        "prob": "76%",
+        "price": "76¢",
+        "yesPrice": 0.76,
+        "noPrice": 0.24,
+        "yesShares": "47,000",
+        "noShares": "29,000",
+        "change": "-1.7%"
+      },
+      {
+        "id": "c-market-gen-22-no",
+        "text": "No",
+        "prob": "24%",
+        "price": "24¢",
+        "yesPrice": 0.24,
+        "noPrice": 0.76,
+        "yesShares": "34,000",
+        "noShares": "12,000",
+        "change": "-1.7%"
+      }
+    ]
+  },
+  "market-gen-23": {
+    "id": "market-gen-23",
+    "title": "Will SEC approves defense budget proposal in  happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "India & South Asia",
+    "volume": "$4450,000",
+    "closingIn": "2m 5d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-23-yes",
+        "text": "Yes",
+        "prob": "14%",
+        "price": "14¢",
+        "yesPrice": 0.14,
+        "noPrice": 0.86,
+        "yesShares": "14,000",
+        "noShares": "23,000",
+        "change": "+9.0%"
+      },
+      {
+        "id": "c-market-gen-23-no",
+        "text": "No",
+        "prob": "86%",
+        "price": "86¢",
+        "yesPrice": 0.86,
+        "noPrice": 0.14,
+        "yesShares": "28,000",
+        "noShares": "25,000",
+        "change": "+9.0%"
+      }
+    ]
+  },
+  "market-gen-24": {
+    "id": "market-gen-24",
+    "title": "Will OpenAI releases gaming console in surpri happen before Dec 31?",
+    "category": "AI & Tech",
+    "region": "India & South Asia",
+    "volume": "$2014,000",
+    "closingIn": "7m 29d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-24-yes",
+        "text": "Yes",
+        "prob": "59%",
+        "price": "59¢",
+        "yesPrice": 0.59,
+        "noPrice": 0.41,
+        "yesShares": "13,000",
+        "noShares": "30,000",
+        "change": "-2.7%"
+      },
+      {
+        "id": "c-market-gen-24-no",
+        "text": "No",
+        "prob": "41%",
+        "price": "41¢",
+        "yesPrice": 0.41,
+        "noPrice": 0.59,
+        "yesShares": "43,000",
+        "noShares": "38,000",
+        "change": "-2.7%"
+      }
+    ]
+  },
+  "market-gen-25": {
+    "id": "market-gen-25",
+    "title": "Will Google announces gaming console in surpr happen before Dec 31?",
+    "category": "AI & Tech",
+    "region": "India & South Asia",
+    "volume": "$4929,000",
+    "closingIn": "11m 19d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-25-yes",
+        "text": "Yes",
+        "prob": "38%",
+        "price": "38¢",
+        "yesPrice": 0.38,
+        "noPrice": 0.62,
+        "yesShares": "16,000",
+        "noShares": "48,000",
+        "change": "-3.6%"
+      },
+      {
+        "id": "c-market-gen-25-no",
+        "text": "No",
+        "prob": "62%",
+        "price": "62¢",
+        "yesPrice": 0.62,
+        "noPrice": 0.38,
+        "yesShares": "23,000",
+        "noShares": "22,000",
+        "change": "-3.6%"
+      }
+    ]
+  },
+  "market-gen-26": {
+    "id": "market-gen-26",
+    "title": "Will Ethereum upgrades major software update  happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "USA & Americas",
+    "volume": "$3846,000",
+    "closingIn": "3m 7d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-26-yes",
+        "text": "Yes",
+        "prob": "79%",
+        "price": "79¢",
+        "yesPrice": 0.79,
+        "noPrice": 0.21,
+        "yesShares": "46,000",
+        "noShares": "49,000",
+        "change": "-7.0%"
+      },
+      {
+        "id": "c-market-gen-26-no",
+        "text": "No",
+        "prob": "21%",
+        "price": "21¢",
+        "yesPrice": 0.21,
+        "noPrice": 0.79,
+        "yesShares": "12,000",
+        "noShares": "39,000",
+        "change": "-7.0%"
+      }
+    ]
+  },
+  "market-gen-27": {
+    "id": "market-gen-27",
+    "title": "Will FIFA record revenue controversy in surpr happen before Dec 31?",
+    "category": "Sports",
+    "region": "Europe & UK",
+    "volume": "$982,000",
+    "closingIn": "7m 13d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-27-yes",
+        "text": "Yes",
+        "prob": "15%",
+        "price": "15¢",
+        "yesPrice": 0.15,
+        "noPrice": 0.85,
+        "yesShares": "12,000",
+        "noShares": "44,000",
+        "change": "+6.1%"
+      },
+      {
+        "id": "c-market-gen-27-no",
+        "text": "No",
+        "prob": "85%",
+        "price": "85¢",
+        "yesPrice": 0.85,
+        "noPrice": 0.15,
+        "yesShares": "17,000",
+        "noShares": "38,000",
+        "change": "+6.1%"
+      }
+    ]
+  },
+  "market-gen-28": {
+    "id": "market-gen-28",
+    "title": "Will Disney acquires record revenue in surpri happen before Dec 31?",
+    "category": "Entertainment",
+    "region": "India & South Asia",
+    "volume": "$173,000",
+    "closingIn": "11m 26d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-28-yes",
+        "text": "Yes",
+        "prob": "63%",
+        "price": "63¢",
+        "yesPrice": 0.63,
+        "noPrice": 0.37,
+        "yesShares": "16,000",
+        "noShares": "19,000",
+        "change": "+8.4%"
+      },
+      {
+        "id": "c-market-gen-28-no",
+        "text": "No",
+        "prob": "37%",
+        "price": "37¢",
+        "yesPrice": 0.37,
+        "noPrice": 0.63,
+        "yesShares": "25,000",
+        "noShares": "42,000",
+        "change": "+8.4%"
+      }
+    ]
+  },
+  "market-gen-29": {
+    "id": "market-gen-29",
+    "title": "Will Disney acquires climate regulation in su happen before Dec 31?",
+    "category": "Entertainment",
+    "region": "Europe & UK",
+    "volume": "$4823,000",
+    "closingIn": "3m 12d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-29-yes",
+        "text": "Yes",
+        "prob": "27%",
+        "price": "27¢",
+        "yesPrice": 0.27,
+        "noPrice": 0.73,
+        "yesShares": "46,000",
+        "noShares": "21,000",
+        "change": "-4.2%"
+      },
+      {
+        "id": "c-market-gen-29-no",
+        "text": "No",
+        "prob": "73%",
+        "price": "73¢",
+        "yesPrice": 0.73,
+        "noPrice": 0.27,
+        "yesShares": "35,000",
+        "noShares": "17,000",
+        "change": "-4.2%"
+      }
+    ]
+  },
+  "market-gen-30": {
+    "id": "market-gen-30",
+    "title": "Will Inflation data reveals interest rate hik happen before Dec 31?",
+    "category": "Economy & RBI",
+    "region": "Asia-Pacific",
+    "volume": "$941,000",
+    "closingIn": "4m 25d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-30-yes",
+        "text": "Yes",
+        "prob": "36%",
+        "price": "36¢",
+        "yesPrice": 0.36,
+        "noPrice": 0.64,
+        "yesShares": "37,000",
+        "noShares": "38,000",
+        "change": "-9.8%"
+      },
+      {
+        "id": "c-market-gen-30-no",
+        "text": "No",
+        "prob": "64%",
+        "price": "64¢",
+        "yesPrice": 0.64,
+        "noPrice": 0.36,
+        "yesShares": "12,000",
+        "noShares": "46,000",
+        "change": "-9.8%"
+      }
+    ]
+  },
+  "market-gen-31": {
+    "id": "market-gen-31",
+    "title": "Will Solana network championship title in sur happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "USA & Americas",
+    "volume": "$523,000",
+    "closingIn": "7m 11d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-31-yes",
+        "text": "Yes",
+        "prob": "37%",
+        "price": "37¢",
+        "yesPrice": 0.37,
+        "noPrice": 0.63,
+        "yesShares": "24,000",
+        "noShares": "45,000",
+        "change": "+4.9%"
+      },
+      {
+        "id": "c-market-gen-31-no",
+        "text": "No",
+        "prob": "63%",
+        "price": "63¢",
+        "yesPrice": 0.63,
+        "noPrice": 0.37,
+        "yesShares": "25,000",
+        "noShares": "17,000",
+        "change": "+4.9%"
+      }
+    ]
+  },
+  "market-gen-32": {
+    "id": "market-gen-32",
+    "title": "Will FIFA antitrust lawsuit controversy in su happen before Dec 31?",
+    "category": "Sports",
+    "region": "India & South Asia",
+    "volume": "$1108,000",
+    "closingIn": "5m 8d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-32-yes",
+        "text": "Yes",
+        "prob": "83%",
+        "price": "83¢",
+        "yesPrice": 0.83,
+        "noPrice": 0.17,
+        "yesShares": "17,000",
+        "noShares": "46,000",
+        "change": "+7.8%"
+      },
+      {
+        "id": "c-market-gen-32-no",
+        "text": "No",
+        "prob": "17%",
+        "price": "17¢",
+        "yesPrice": 0.17,
+        "noPrice": 0.83,
+        "yesShares": "47,000",
+        "noShares": "35,000",
+        "change": "+7.8%"
+      }
+    ]
+  },
+  "market-gen-33": {
+    "id": "market-gen-33",
+    "title": "Will SEC approves defense budget proposal in  happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "Global",
+    "volume": "$3864,000",
+    "closingIn": "7m 25d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-33-yes",
+        "text": "Yes",
+        "prob": "85%",
+        "price": "85¢",
+        "yesPrice": 0.85,
+        "noPrice": 0.15,
+        "yesShares": "19,000",
+        "noShares": "32,000",
+        "change": "-0.8%"
+      },
+      {
+        "id": "c-market-gen-33-no",
+        "text": "No",
+        "prob": "15%",
+        "price": "15¢",
+        "yesPrice": 0.15,
+        "noPrice": 0.85,
+        "yesShares": "13,000",
+        "noShares": "22,000",
+        "change": "-0.8%"
+      }
+    ]
+  },
+  "market-gen-34": {
+    "id": "market-gen-34",
+    "title": "Will Olympics new AI model debate in surprise happen before Dec 31?",
+    "category": "Sports",
+    "region": "Asia-Pacific",
+    "volume": "$3809,000",
+    "closingIn": "10m 18d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-34-yes",
+        "text": "Yes",
+        "prob": "86%",
+        "price": "86¢",
+        "yesPrice": 0.86,
+        "noPrice": 0.14,
+        "yesShares": "20,000",
+        "noShares": "49,000",
+        "change": "-4.2%"
+      },
+      {
+        "id": "c-market-gen-34-no",
+        "text": "No",
+        "prob": "14%",
+        "price": "14¢",
+        "yesPrice": 0.14,
+        "noPrice": 0.86,
+        "yesShares": "22,000",
+        "noShares": "20,000",
+        "change": "-4.2%"
+      }
+    ]
+  },
+  "market-gen-35": {
+    "id": "market-gen-35",
+    "title": "Will FIFA climate regulation controversy in s happen before Dec 31?",
+    "category": "Sports",
+    "region": "Asia-Pacific",
+    "volume": "$3640,000",
+    "closingIn": "2m 23d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-35-yes",
+        "text": "Yes",
+        "prob": "13%",
+        "price": "13¢",
+        "yesPrice": 0.13,
+        "noPrice": 0.87,
+        "yesShares": "34,000",
+        "noShares": "38,000",
+        "change": "-7.7%"
+      },
+      {
+        "id": "c-market-gen-35-no",
+        "text": "No",
+        "prob": "87%",
+        "price": "87¢",
+        "yesPrice": 0.87,
+        "noPrice": 0.13,
+        "yesShares": "46,000",
+        "noShares": "47,000",
+        "change": "-7.7%"
+      }
+    ]
+  },
+  "market-gen-36": {
+    "id": "market-gen-36",
+    "title": "Will Supreme Court rules on major software up happen before Dec 31?",
+    "category": "Politics & Law",
+    "region": "Global",
+    "volume": "$1315,000",
+    "closingIn": "6m 18d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-36-yes",
+        "text": "Yes",
+        "prob": "51%",
+        "price": "51¢",
+        "yesPrice": 0.51,
+        "noPrice": 0.49,
+        "yesShares": "48,000",
+        "noShares": "43,000",
+        "change": "+4.6%"
+      },
+      {
+        "id": "c-market-gen-36-no",
+        "text": "No",
+        "prob": "49%",
+        "price": "49¢",
+        "yesPrice": 0.49,
+        "noPrice": 0.51,
+        "yesShares": "39,000",
+        "noShares": "13,000",
+        "change": "+4.6%"
+      }
+    ]
+  },
+  "market-gen-37": {
+    "id": "market-gen-37",
+    "title": "Will Google announces antitrust lawsuit in su happen before Dec 31?",
+    "category": "AI & Tech",
+    "region": "USA & Americas",
+    "volume": "$1830,000",
+    "closingIn": "7m 20d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-37-yes",
+        "text": "Yes",
+        "prob": "34%",
+        "price": "34¢",
+        "yesPrice": 0.34,
+        "noPrice": 0.66,
+        "yesShares": "41,000",
+        "noShares": "46,000",
+        "change": "+6.6%"
+      },
+      {
+        "id": "c-market-gen-37-no",
+        "text": "No",
+        "prob": "66%",
+        "price": "66¢",
+        "yesPrice": 0.66,
+        "noPrice": 0.34,
+        "yesShares": "45,000",
+        "noShares": "33,000",
+        "change": "+6.6%"
+      }
+    ]
+  },
+  "market-gen-38": {
+    "id": "market-gen-38",
+    "title": "Will Bitcoin hits interest rate hike in surpr happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "Global",
+    "volume": "$831,000",
+    "closingIn": "2m 18d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-38-yes",
+        "text": "Yes",
+        "prob": "18%",
+        "price": "18¢",
+        "yesPrice": 0.18,
+        "noPrice": 0.82,
+        "yesShares": "33,000",
+        "noShares": "11,000",
+        "change": "+0.9%"
+      },
+      {
+        "id": "c-market-gen-38-no",
+        "text": "No",
+        "prob": "82%",
+        "price": "82¢",
+        "yesPrice": 0.82,
+        "noPrice": 0.18,
+        "yesShares": "19,000",
+        "noShares": "26,000",
+        "change": "+0.9%"
+      }
+    ]
+  },
+  "market-gen-39": {
+    "id": "market-gen-39",
+    "title": "Will Solana network defense budget proposal i happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "Asia-Pacific",
+    "volume": "$3361,000",
+    "closingIn": "3m 13d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-39-yes",
+        "text": "Yes",
+        "prob": "58%",
+        "price": "58¢",
+        "yesPrice": 0.58,
+        "noPrice": 0.42,
+        "yesShares": "15,000",
+        "noShares": "18,000",
+        "change": "-9.0%"
+      },
+      {
+        "id": "c-market-gen-39-no",
+        "text": "No",
+        "prob": "42%",
+        "price": "42¢",
+        "yesPrice": 0.42,
+        "noPrice": 0.58,
+        "yesShares": "24,000",
+        "noShares": "49,000",
+        "change": "-9.0%"
+      }
+    ]
+  },
+  "market-gen-40": {
+    "id": "market-gen-40",
+    "title": "Will Ethereum upgrades antitrust lawsuit in s happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "Europe & UK",
+    "volume": "$1662,000",
+    "closingIn": "4m 9d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-40-yes",
+        "text": "Yes",
+        "prob": "25%",
+        "price": "25¢",
+        "yesPrice": 0.25,
+        "noPrice": 0.75,
+        "yesShares": "46,000",
+        "noShares": "44,000",
+        "change": "+8.5%"
+      },
+      {
+        "id": "c-market-gen-40-no",
+        "text": "No",
+        "prob": "75%",
+        "price": "75¢",
+        "yesPrice": 0.75,
+        "noPrice": 0.25,
+        "yesShares": "30,000",
+        "noShares": "46,000",
+        "change": "+8.5%"
+      }
+    ]
+  },
+  "market-gen-41": {
+    "id": "market-gen-41",
+    "title": "Will Senate passes championship title in surp happen before Dec 31?",
+    "category": "Politics & Law",
+    "region": "Europe & UK",
+    "volume": "$2460,000",
+    "closingIn": "7m 14d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-41-yes",
+        "text": "Yes",
+        "prob": "43%",
+        "price": "43¢",
+        "yesPrice": 0.43,
+        "noPrice": 0.57,
+        "yesShares": "26,000",
+        "noShares": "39,000",
+        "change": "+5.4%"
+      },
+      {
+        "id": "c-market-gen-41-no",
+        "text": "No",
+        "prob": "57%",
+        "price": "57¢",
+        "yesPrice": 0.57,
+        "noPrice": 0.43,
+        "yesShares": "32,000",
+        "noShares": "40,000",
+        "change": "+5.4%"
+      }
+    ]
+  },
+  "market-gen-42": {
+    "id": "market-gen-42",
+    "title": "Will EU Parliament debates interest rate hike happen before Dec 31?",
+    "category": "Politics & Law",
+    "region": "Global",
+    "volume": "$3496,000",
+    "closingIn": "1m 14d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-42-yes",
+        "text": "Yes",
+        "prob": "88%",
+        "price": "88¢",
+        "yesPrice": 0.88,
+        "noPrice": 0.12,
+        "yesShares": "34,000",
+        "noShares": "28,000",
+        "change": "+3.6%"
+      },
+      {
+        "id": "c-market-gen-42-no",
+        "text": "No",
+        "prob": "12%",
+        "price": "12¢",
+        "yesPrice": 0.12,
+        "noPrice": 0.88,
+        "yesShares": "36,000",
+        "noShares": "14,000",
+        "change": "+3.6%"
+      }
+    ]
+  },
+  "market-gen-43": {
+    "id": "market-gen-43",
+    "title": "Will EU Parliament debates antitrust lawsuit  happen before Dec 31?",
+    "category": "Politics & Law",
+    "region": "Global",
+    "volume": "$1120,000",
+    "closingIn": "2m 16d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-43-yes",
+        "text": "Yes",
+        "prob": "19%",
+        "price": "19¢",
+        "yesPrice": 0.19,
+        "noPrice": 0.81,
+        "yesShares": "22,000",
+        "noShares": "21,000",
+        "change": "+5.7%"
+      },
+      {
+        "id": "c-market-gen-43-no",
+        "text": "No",
+        "prob": "81%",
+        "price": "81¢",
+        "yesPrice": 0.81,
+        "noPrice": 0.19,
+        "yesShares": "33,000",
+        "noShares": "17,000",
+        "change": "+5.7%"
+      }
+    ]
+  },
+  "market-gen-44": {
+    "id": "market-gen-44",
+    "title": "Will Apple integrates climate regulation into happen before Dec 31?",
+    "category": "AI & Tech",
+    "region": "USA & Americas",
+    "volume": "$1957,000",
+    "closingIn": "1m 14d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-44-yes",
+        "text": "Yes",
+        "prob": "12%",
+        "price": "12¢",
+        "yesPrice": 0.12,
+        "noPrice": 0.88,
+        "yesShares": "39,000",
+        "noShares": "10,000",
+        "change": "-3.4%"
+      },
+      {
+        "id": "c-market-gen-44-no",
+        "text": "No",
+        "prob": "88%",
+        "price": "88¢",
+        "yesPrice": 0.88,
+        "noPrice": 0.12,
+        "yesShares": "35,000",
+        "noShares": "27,000",
+        "change": "-3.4%"
+      }
+    ]
+  },
+  "market-gen-45": {
+    "id": "market-gen-45",
+    "title": "Will OpenAI releases interest rate hike in su happen before Dec 31?",
+    "category": "AI & Tech",
+    "region": "USA & Americas",
+    "volume": "$1972,000",
+    "closingIn": "2m 24d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-45-yes",
+        "text": "Yes",
+        "prob": "21%",
+        "price": "21¢",
+        "yesPrice": 0.21,
+        "noPrice": 0.79,
+        "yesShares": "43,000",
+        "noShares": "24,000",
+        "change": "+2.9%"
+      },
+      {
+        "id": "c-market-gen-45-no",
+        "text": "No",
+        "prob": "79%",
+        "price": "79¢",
+        "yesPrice": 0.79,
+        "noPrice": 0.21,
+        "yesShares": "41,000",
+        "noShares": "44,000",
+        "change": "+2.9%"
+      }
+    ]
+  },
+  "market-gen-46": {
+    "id": "market-gen-46",
+    "title": "Will SEC approves major software update in su happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "Europe & UK",
+    "volume": "$1786,000",
+    "closingIn": "9m 18d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-46-yes",
+        "text": "Yes",
+        "prob": "71%",
+        "price": "71¢",
+        "yesPrice": 0.71,
+        "noPrice": 0.29,
+        "yesShares": "25,000",
+        "noShares": "27,000",
+        "change": "-4.7%"
+      },
+      {
+        "id": "c-market-gen-46-no",
+        "text": "No",
+        "prob": "29%",
+        "price": "29¢",
+        "yesPrice": 0.29,
+        "noPrice": 0.71,
+        "yesShares": "26,000",
+        "noShares": "28,000",
+        "change": "-4.7%"
+      }
+    ]
+  },
+  "market-gen-47": {
+    "id": "market-gen-47",
+    "title": "Will Oscar defense budget proposal prediction happen before Dec 31?",
+    "category": "Entertainment",
+    "region": "Global",
+    "volume": "$1560,000",
+    "closingIn": "2m 19d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-47-yes",
+        "text": "Yes",
+        "prob": "47%",
+        "price": "47¢",
+        "yesPrice": 0.47,
+        "noPrice": 0.53,
+        "yesShares": "49,000",
+        "noShares": "29,000",
+        "change": "+9.9%"
+      },
+      {
+        "id": "c-market-gen-47-no",
+        "text": "No",
+        "prob": "53%",
+        "price": "53¢",
+        "yesPrice": 0.53,
+        "noPrice": 0.47,
+        "yesShares": "12,000",
+        "noShares": "30,000",
+        "change": "+9.9%"
+      }
+    ]
+  },
+  "market-gen-48": {
+    "id": "market-gen-48",
+    "title": "Will Unemployment rate impacts championship t happen before Dec 31?",
+    "category": "Economy & RBI",
+    "region": "Asia-Pacific",
+    "volume": "$2013,000",
+    "closingIn": "1m 28d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-48-yes",
+        "text": "Yes",
+        "prob": "25%",
+        "price": "25¢",
+        "yesPrice": 0.25,
+        "noPrice": 0.75,
+        "yesShares": "47,000",
+        "noShares": "37,000",
+        "change": "-5.7%"
+      },
+      {
+        "id": "c-market-gen-48-no",
+        "text": "No",
+        "prob": "75%",
+        "price": "75¢",
+        "yesPrice": 0.75,
+        "noPrice": 0.25,
+        "yesShares": "41,000",
+        "noShares": "39,000",
+        "change": "-5.7%"
+      }
+    ]
+  },
+  "market-gen-49": {
+    "id": "market-gen-49",
+    "title": "Will Olympics defense budget proposal debate  happen before Dec 31?",
+    "category": "Sports",
+    "region": "Global",
+    "volume": "$3138,000",
+    "closingIn": "1m 13d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-49-yes",
+        "text": "Yes",
+        "prob": "13%",
+        "price": "13¢",
+        "yesPrice": 0.13,
+        "noPrice": 0.87,
+        "yesShares": "27,000",
+        "noShares": "13,000",
+        "change": "+2.6%"
+      },
+      {
+        "id": "c-market-gen-49-no",
+        "text": "No",
+        "prob": "87%",
+        "price": "87¢",
+        "yesPrice": 0.87,
+        "noPrice": 0.13,
+        "yesShares": "40,000",
+        "noShares": "19,000",
+        "change": "+2.6%"
+      }
+    ]
+  },
+  "market-gen-50": {
+    "id": "market-gen-50",
+    "title": "Will Netflix renews new AI model in surprise  happen before Dec 31?",
+    "category": "Entertainment",
+    "region": "Asia-Pacific",
+    "volume": "$1405,000",
+    "closingIn": "1m 22d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-50-yes",
+        "text": "Yes",
+        "prob": "64%",
+        "price": "64¢",
+        "yesPrice": 0.64,
+        "noPrice": 0.36,
+        "yesShares": "13,000",
+        "noShares": "34,000",
+        "change": "-1.6%"
+      },
+      {
+        "id": "c-market-gen-50-no",
+        "text": "No",
+        "prob": "36%",
+        "price": "36¢",
+        "yesPrice": 0.36,
+        "noPrice": 0.64,
+        "yesShares": "13,000",
+        "noShares": "47,000",
+        "change": "-1.6%"
+      }
+    ]
+  },
+  "market-gen-51": {
+    "id": "market-gen-51",
+    "title": "Will Election gaming console tightened in sur happen before Dec 31?",
+    "category": "Politics & Law",
+    "region": "Europe & UK",
+    "volume": "$2793,000",
+    "closingIn": "8m 5d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-51-yes",
+        "text": "Yes",
+        "prob": "43%",
+        "price": "43¢",
+        "yesPrice": 0.43,
+        "noPrice": 0.57,
+        "yesShares": "15,000",
+        "noShares": "37,000",
+        "change": "-1.9%"
+      },
+      {
+        "id": "c-market-gen-51-no",
+        "text": "No",
+        "prob": "57%",
+        "price": "57¢",
+        "yesPrice": 0.57,
+        "noPrice": 0.43,
+        "yesShares": "18,000",
+        "noShares": "17,000",
+        "change": "-1.9%"
+      }
+    ]
+  },
+  "market-gen-52": {
+    "id": "market-gen-52",
+    "title": "Will Disney acquires antitrust lawsuit in sur happen before Dec 31?",
+    "category": "Entertainment",
+    "region": "Global",
+    "volume": "$3464,000",
+    "closingIn": "7m 14d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-52-yes",
+        "text": "Yes",
+        "prob": "64%",
+        "price": "64¢",
+        "yesPrice": 0.64,
+        "noPrice": 0.36,
+        "yesShares": "49,000",
+        "noShares": "25,000",
+        "change": "-3.6%"
+      },
+      {
+        "id": "c-market-gen-52-no",
+        "text": "No",
+        "prob": "36%",
+        "price": "36¢",
+        "yesPrice": 0.36,
+        "noPrice": 0.64,
+        "yesShares": "27,000",
+        "noShares": "40,000",
+        "change": "-3.6%"
+      }
+    ]
+  },
+  "market-gen-53": {
+    "id": "market-gen-53",
+    "title": "Will Solana network interest rate hike in sur happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "India & South Asia",
+    "volume": "$152,000",
+    "closingIn": "6m 26d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-53-yes",
+        "text": "Yes",
+        "prob": "60%",
+        "price": "60¢",
+        "yesPrice": 0.6,
+        "noPrice": 0.4,
+        "yesShares": "20,000",
+        "noShares": "25,000",
+        "change": "-4.0%"
+      },
+      {
+        "id": "c-market-gen-53-no",
+        "text": "No",
+        "prob": "40%",
+        "price": "40¢",
+        "yesPrice": 0.4,
+        "noPrice": 0.6,
+        "yesShares": "49,000",
+        "noShares": "12,000",
+        "change": "-4.0%"
+      }
+    ]
+  },
+  "market-gen-54": {
+    "id": "market-gen-54",
+    "title": "Will Solana network new AI model in surprise  happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "Europe & UK",
+    "volume": "$826,000",
+    "closingIn": "3m 12d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-54-yes",
+        "text": "Yes",
+        "prob": "76%",
+        "price": "76¢",
+        "yesPrice": 0.76,
+        "noPrice": 0.24,
+        "yesShares": "33,000",
+        "noShares": "21,000",
+        "change": "-7.4%"
+      },
+      {
+        "id": "c-market-gen-54-no",
+        "text": "No",
+        "prob": "24%",
+        "price": "24¢",
+        "yesPrice": 0.24,
+        "noPrice": 0.76,
+        "yesShares": "29,000",
+        "noShares": "12,000",
+        "change": "-7.4%"
+      }
+    ]
+  },
+  "market-gen-55": {
+    "id": "market-gen-55",
+    "title": "Will Supreme Court rules on new AI model in s happen before Dec 31?",
+    "category": "Politics & Law",
+    "region": "India & South Asia",
+    "volume": "$3178,000",
+    "closingIn": "2m 17d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-55-yes",
+        "text": "Yes",
+        "prob": "60%",
+        "price": "60¢",
+        "yesPrice": 0.6,
+        "noPrice": 0.4,
+        "yesShares": "25,000",
+        "noShares": "14,000",
+        "change": "-3.9%"
+      },
+      {
+        "id": "c-market-gen-55-no",
+        "text": "No",
+        "prob": "40%",
+        "price": "40¢",
+        "yesPrice": 0.4,
+        "noPrice": 0.6,
+        "yesShares": "49,000",
+        "noShares": "18,000",
+        "change": "-3.9%"
+      }
+    ]
+  },
+  "market-gen-56": {
+    "id": "market-gen-56",
+    "title": "Will Olympics defense budget proposal debate  happen before Dec 31?",
+    "category": "Sports",
+    "region": "USA & Americas",
+    "volume": "$339,000",
+    "closingIn": "5m 21d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-56-yes",
+        "text": "Yes",
+        "prob": "84%",
+        "price": "84¢",
+        "yesPrice": 0.84,
+        "noPrice": 0.16,
+        "yesShares": "39,000",
+        "noShares": "37,000",
+        "change": "+9.0%"
+      },
+      {
+        "id": "c-market-gen-56-no",
+        "text": "No",
+        "prob": "16%",
+        "price": "16¢",
+        "yesPrice": 0.16,
+        "noPrice": 0.84,
+        "yesShares": "18,000",
+        "noShares": "21,000",
+        "change": "+9.0%"
+      }
+    ]
+  },
+  "market-gen-57": {
+    "id": "market-gen-57",
+    "title": "Will RBI Governor addresses championship titl happen before Dec 31?",
+    "category": "Economy & RBI",
+    "region": "USA & Americas",
+    "volume": "$4860,000",
+    "closingIn": "3m 13d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-57-yes",
+        "text": "Yes",
+        "prob": "19%",
+        "price": "19¢",
+        "yesPrice": 0.19,
+        "noPrice": 0.81,
+        "yesShares": "10,000",
+        "noShares": "34,000",
+        "change": "+8.1%"
+      },
+      {
+        "id": "c-market-gen-57-no",
+        "text": "No",
+        "prob": "81%",
+        "price": "81¢",
+        "yesPrice": 0.81,
+        "noPrice": 0.19,
+        "yesShares": "24,000",
+        "noShares": "19,000",
+        "change": "+8.1%"
+      }
+    ]
+  },
+  "market-gen-58": {
+    "id": "market-gen-58",
+    "title": "Will OpenAI releases crypto spot ETF in surpr happen before Dec 31?",
+    "category": "AI & Tech",
+    "region": "India & South Asia",
+    "volume": "$1458,000",
+    "closingIn": "4m 20d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-58-yes",
+        "text": "Yes",
+        "prob": "60%",
+        "price": "60¢",
+        "yesPrice": 0.6,
+        "noPrice": 0.4,
+        "yesShares": "25,000",
+        "noShares": "25,000",
+        "change": "-6.4%"
+      },
+      {
+        "id": "c-market-gen-58-no",
+        "text": "No",
+        "prob": "40%",
+        "price": "40¢",
+        "yesPrice": 0.4,
+        "noPrice": 0.6,
+        "yesShares": "30,000",
+        "noShares": "19,000",
+        "change": "-6.4%"
+      }
+    ]
+  },
+  "market-gen-59": {
+    "id": "market-gen-59",
+    "title": "Will Election championship title tightened in happen before Dec 31?",
+    "category": "Politics & Law",
+    "region": "Global",
+    "volume": "$3720,000",
+    "closingIn": "4m 13d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-59-yes",
+        "text": "Yes",
+        "prob": "38%",
+        "price": "38¢",
+        "yesPrice": 0.38,
+        "noPrice": 0.62,
+        "yesShares": "36,000",
+        "noShares": "25,000",
+        "change": "+7.7%"
+      },
+      {
+        "id": "c-market-gen-59-no",
+        "text": "No",
+        "prob": "62%",
+        "price": "62¢",
+        "yesPrice": 0.62,
+        "noPrice": 0.38,
+        "yesShares": "42,000",
+        "noShares": "22,000",
+        "change": "+7.7%"
+      }
+    ]
+  },
+  "market-gen-60": {
+    "id": "market-gen-60",
+    "title": "Will OpenAI releases new AI model in surprise happen before Dec 31?",
+    "category": "AI & Tech",
+    "region": "USA & Americas",
+    "volume": "$861,000",
+    "closingIn": "9m 23d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-60-yes",
+        "text": "Yes",
+        "prob": "55%",
+        "price": "55¢",
+        "yesPrice": 0.55,
+        "noPrice": 0.45,
+        "yesShares": "37,000",
+        "noShares": "38,000",
+        "change": "+9.1%"
+      },
+      {
+        "id": "c-market-gen-60-no",
+        "text": "No",
+        "prob": "45%",
+        "price": "45¢",
+        "yesPrice": 0.45,
+        "noPrice": 0.55,
+        "yesShares": "13,000",
+        "noShares": "11,000",
+        "change": "+9.1%"
+      }
+    ]
+  },
+  "market-gen-61": {
+    "id": "market-gen-61",
+    "title": "Will RBI Governor addresses championship titl happen before Dec 31?",
+    "category": "Economy & RBI",
+    "region": "USA & Americas",
+    "volume": "$1091,000",
+    "closingIn": "4m 7d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-61-yes",
+        "text": "Yes",
+        "prob": "77%",
+        "price": "77¢",
+        "yesPrice": 0.77,
+        "noPrice": 0.23,
+        "yesShares": "13,000",
+        "noShares": "47,000",
+        "change": "+2.3%"
+      },
+      {
+        "id": "c-market-gen-61-no",
+        "text": "No",
+        "prob": "23%",
+        "price": "23¢",
+        "yesPrice": 0.23,
+        "noPrice": 0.77,
+        "yesShares": "35,000",
+        "noShares": "23,000",
+        "change": "+2.3%"
+      }
+    ]
+  },
+  "market-gen-62": {
+    "id": "market-gen-62",
+    "title": "Will Federal Reserve announces climate regula happen before Dec 31?",
+    "category": "Economy & RBI",
+    "region": "Global",
+    "volume": "$2484,000",
+    "closingIn": "6m 7d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-62-yes",
+        "text": "Yes",
+        "prob": "14%",
+        "price": "14¢",
+        "yesPrice": 0.14,
+        "noPrice": 0.86,
+        "yesShares": "32,000",
+        "noShares": "43,000",
+        "change": "-3.3%"
+      },
+      {
+        "id": "c-market-gen-62-no",
+        "text": "No",
+        "prob": "86%",
+        "price": "86¢",
+        "yesPrice": 0.86,
+        "noPrice": 0.14,
+        "yesShares": "37,000",
+        "noShares": "26,000",
+        "change": "-3.3%"
+      }
+    ]
+  },
+  "market-gen-63": {
+    "id": "market-gen-63",
+    "title": "Will Oscar gaming console predictions in surp happen before Dec 31?",
+    "category": "Entertainment",
+    "region": "Asia-Pacific",
+    "volume": "$1729,000",
+    "closingIn": "5m 23d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-63-yes",
+        "text": "Yes",
+        "prob": "25%",
+        "price": "25¢",
+        "yesPrice": 0.25,
+        "noPrice": 0.75,
+        "yesShares": "31,000",
+        "noShares": "24,000",
+        "change": "+0.6%"
+      },
+      {
+        "id": "c-market-gen-63-no",
+        "text": "No",
+        "prob": "75%",
+        "price": "75¢",
+        "yesPrice": 0.75,
+        "noPrice": 0.25,
+        "yesShares": "31,000",
+        "noShares": "38,000",
+        "change": "+0.6%"
+      }
+    ]
+  },
+  "market-gen-64": {
+    "id": "market-gen-64",
+    "title": "Will FIFA antitrust lawsuit controversy in su happen before Dec 31?",
+    "category": "Sports",
+    "region": "USA & Americas",
+    "volume": "$745,000",
+    "closingIn": "11m 8d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-64-yes",
+        "text": "Yes",
+        "prob": "85%",
+        "price": "85¢",
+        "yesPrice": 0.85,
+        "noPrice": 0.15,
+        "yesShares": "30,000",
+        "noShares": "26,000",
+        "change": "+8.4%"
+      },
+      {
+        "id": "c-market-gen-64-no",
+        "text": "No",
+        "prob": "15%",
+        "price": "15¢",
+        "yesPrice": 0.15,
+        "noPrice": 0.85,
+        "yesShares": "27,000",
+        "noShares": "47,000",
+        "change": "+8.4%"
+      }
+    ]
+  },
+  "market-gen-65": {
+    "id": "market-gen-65",
+    "title": "Will Google announces record revenue in surpr happen before Dec 31?",
+    "category": "AI & Tech",
+    "region": "Europe & UK",
+    "volume": "$4171,000",
+    "closingIn": "11m 24d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-65-yes",
+        "text": "Yes",
+        "prob": "27%",
+        "price": "27¢",
+        "yesPrice": 0.27,
+        "noPrice": 0.73,
+        "yesShares": "16,000",
+        "noShares": "45,000",
+        "change": "+9.5%"
+      },
+      {
+        "id": "c-market-gen-65-no",
+        "text": "No",
+        "prob": "73%",
+        "price": "73¢",
+        "yesPrice": 0.73,
+        "noPrice": 0.27,
+        "yesShares": "49,000",
+        "noShares": "10,000",
+        "change": "+9.5%"
+      }
+    ]
+  },
+  "market-gen-66": {
+    "id": "market-gen-66",
+    "title": "Will SEC approves antitrust lawsuit in surpri happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "Global",
+    "volume": "$169,000",
+    "closingIn": "8m 13d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-66-yes",
+        "text": "Yes",
+        "prob": "89%",
+        "price": "89¢",
+        "yesPrice": 0.89,
+        "noPrice": 0.11,
+        "yesShares": "37,000",
+        "noShares": "37,000",
+        "change": "-8.4%"
+      },
+      {
+        "id": "c-market-gen-66-no",
+        "text": "No",
+        "prob": "11%",
+        "price": "11¢",
+        "yesPrice": 0.11,
+        "noPrice": 0.89,
+        "yesShares": "34,000",
+        "noShares": "48,000",
+        "change": "-8.4%"
+      }
+    ]
+  },
+  "market-gen-67": {
+    "id": "market-gen-67",
+    "title": "Will Supreme Court rules on antitrust lawsuit happen before Dec 31?",
+    "category": "Politics & Law",
+    "region": "Europe & UK",
+    "volume": "$2841,000",
+    "closingIn": "4m 4d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-67-yes",
+        "text": "Yes",
+        "prob": "89%",
+        "price": "89¢",
+        "yesPrice": 0.89,
+        "noPrice": 0.11,
+        "yesShares": "21,000",
+        "noShares": "22,000",
+        "change": "+8.9%"
+      },
+      {
+        "id": "c-market-gen-67-no",
+        "text": "No",
+        "prob": "11%",
+        "price": "11¢",
+        "yesPrice": 0.11,
+        "noPrice": 0.89,
+        "yesShares": "28,000",
+        "noShares": "41,000",
+        "change": "+8.9%"
+      }
+    ]
+  },
+  "market-gen-68": {
+    "id": "market-gen-68",
+    "title": "Will Anthropic upgrades crypto spot ETF in su happen before Dec 31?",
+    "category": "AI & Tech",
+    "region": "Global",
+    "volume": "$2019,000",
+    "closingIn": "6m 8d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-68-yes",
+        "text": "Yes",
+        "prob": "41%",
+        "price": "41¢",
+        "yesPrice": 0.41,
+        "noPrice": 0.59,
+        "yesShares": "19,000",
+        "noShares": "33,000",
+        "change": "+4.3%"
+      },
+      {
+        "id": "c-market-gen-68-no",
+        "text": "No",
+        "prob": "59%",
+        "price": "59¢",
+        "yesPrice": 0.59,
+        "noPrice": 0.41,
+        "yesShares": "35,000",
+        "noShares": "26,000",
+        "change": "+4.3%"
+      }
+    ]
+  },
+  "market-gen-69": {
+    "id": "market-gen-69",
+    "title": "Will Olympics interest rate hike debate in su happen before Dec 31?",
+    "category": "Sports",
+    "region": "Asia-Pacific",
+    "volume": "$2829,000",
+    "closingIn": "3m 24d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-69-yes",
+        "text": "Yes",
+        "prob": "76%",
+        "price": "76¢",
+        "yesPrice": 0.76,
+        "noPrice": 0.24,
+        "yesShares": "12,000",
+        "noShares": "26,000",
+        "change": "+9.9%"
+      },
+      {
+        "id": "c-market-gen-69-no",
+        "text": "No",
+        "prob": "24%",
+        "price": "24¢",
+        "yesPrice": 0.24,
+        "noPrice": 0.76,
+        "yesShares": "35,000",
+        "noShares": "36,000",
+        "change": "+9.9%"
+      }
+    ]
+  },
+  "market-gen-70": {
+    "id": "market-gen-70",
+    "title": "Will OpenAI releases championship title in su happen before Dec 31?",
+    "category": "AI & Tech",
+    "region": "Europe & UK",
+    "volume": "$4616,000",
+    "closingIn": "9m 5d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-70-yes",
+        "text": "Yes",
+        "prob": "60%",
+        "price": "60¢",
+        "yesPrice": 0.6,
+        "noPrice": 0.4,
+        "yesShares": "34,000",
+        "noShares": "22,000",
+        "change": "-9.6%"
+      },
+      {
+        "id": "c-market-gen-70-no",
+        "text": "No",
+        "prob": "40%",
+        "price": "40¢",
+        "yesPrice": 0.4,
+        "noPrice": 0.6,
+        "yesShares": "24,000",
+        "noShares": "21,000",
+        "change": "-9.6%"
+      }
+    ]
+  },
+  "market-gen-71": {
+    "id": "market-gen-71",
+    "title": "Will FIFA new AI model controversy in surpris happen before Dec 31?",
+    "category": "Sports",
+    "region": "Asia-Pacific",
+    "volume": "$3316,000",
+    "closingIn": "11m 13d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-71-yes",
+        "text": "Yes",
+        "prob": "40%",
+        "price": "40¢",
+        "yesPrice": 0.4,
+        "noPrice": 0.6,
+        "yesShares": "22,000",
+        "noShares": "15,000",
+        "change": "+4.1%"
+      },
+      {
+        "id": "c-market-gen-71-no",
+        "text": "No",
+        "prob": "60%",
+        "price": "60¢",
+        "yesPrice": 0.6,
+        "noPrice": 0.4,
+        "yesShares": "46,000",
+        "noShares": "11,000",
+        "change": "+4.1%"
+      }
+    ]
+  },
+  "market-gen-72": {
+    "id": "market-gen-72",
+    "title": "Will Ethereum upgrades gaming console in surp happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "USA & Americas",
+    "volume": "$4212,000",
+    "closingIn": "5m 7d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-72-yes",
+        "text": "Yes",
+        "prob": "51%",
+        "price": "51¢",
+        "yesPrice": 0.51,
+        "noPrice": 0.49,
+        "yesShares": "17,000",
+        "noShares": "10,000",
+        "change": "-1.9%"
+      },
+      {
+        "id": "c-market-gen-72-no",
+        "text": "No",
+        "prob": "49%",
+        "price": "49¢",
+        "yesPrice": 0.49,
+        "noPrice": 0.51,
+        "yesShares": "46,000",
+        "noShares": "10,000",
+        "change": "-1.9%"
+      }
+    ]
+  },
+  "market-gen-73": {
+    "id": "market-gen-73",
+    "title": "Will SEC approves record revenue in surprise  happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "Asia-Pacific",
+    "volume": "$125,000",
+    "closingIn": "1m 15d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-73-yes",
+        "text": "Yes",
+        "prob": "13%",
+        "price": "13¢",
+        "yesPrice": 0.13,
+        "noPrice": 0.87,
+        "yesShares": "22,000",
+        "noShares": "11,000",
+        "change": "+7.5%"
+      },
+      {
+        "id": "c-market-gen-73-no",
+        "text": "No",
+        "prob": "87%",
+        "price": "87¢",
+        "yesPrice": 0.87,
+        "noPrice": 0.13,
+        "yesShares": "44,000",
+        "noShares": "16,000",
+        "change": "+7.5%"
+      }
+    ]
+  },
+  "market-gen-74": {
+    "id": "market-gen-74",
+    "title": "Will Ethereum upgrades interest rate hike in  happen before Dec 31?",
+    "category": "Crypto & DeFi",
+    "region": "USA & Americas",
+    "volume": "$4671,000",
+    "closingIn": "2m 6d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-74-yes",
+        "text": "Yes",
+        "prob": "84%",
+        "price": "84¢",
+        "yesPrice": 0.84,
+        "noPrice": 0.16,
+        "yesShares": "30,000",
+        "noShares": "11,000",
+        "change": "+2.0%"
+      },
+      {
+        "id": "c-market-gen-74-no",
+        "text": "No",
+        "prob": "16%",
+        "price": "16¢",
+        "yesPrice": 0.16,
+        "noPrice": 0.84,
+        "yesShares": "24,000",
+        "noShares": "34,000",
+        "change": "+2.0%"
+      }
+    ]
+  },
+  "market-gen-75": {
+    "id": "market-gen-75",
+    "title": "Will Apple integrates gaming console into iOS happen before Dec 31?",
+    "category": "AI & Tech",
+    "region": "India & South Asia",
+    "volume": "$647,000",
+    "closingIn": "8m 27d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-75-yes",
+        "text": "Yes",
+        "prob": "84%",
+        "price": "84¢",
+        "yesPrice": 0.84,
+        "noPrice": 0.16,
+        "yesShares": "10,000",
+        "noShares": "37,000",
+        "change": "-7.7%"
+      },
+      {
+        "id": "c-market-gen-75-no",
+        "text": "No",
+        "prob": "16%",
+        "price": "16¢",
+        "yesPrice": 0.16,
+        "noPrice": 0.84,
+        "yesShares": "34,000",
+        "noShares": "16,000",
+        "change": "-7.7%"
+      }
+    ]
+  },
+  "market-gen-76": {
+    "id": "market-gen-76",
+    "title": "Will FIFA interest rate hike controversy in s happen before Dec 31?",
+    "category": "Sports",
+    "region": "India & South Asia",
+    "volume": "$3797,000",
+    "closingIn": "4m 13d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-76-yes",
+        "text": "Yes",
+        "prob": "39%",
+        "price": "39¢",
+        "yesPrice": 0.39,
+        "noPrice": 0.61,
+        "yesShares": "21,000",
+        "noShares": "32,000",
+        "change": "+7.4%"
+      },
+      {
+        "id": "c-market-gen-76-no",
+        "text": "No",
+        "prob": "61%",
+        "price": "61¢",
+        "yesPrice": 0.61,
+        "noPrice": 0.39,
+        "yesShares": "31,000",
+        "noShares": "22,000",
+        "change": "+7.4%"
+      }
+    ]
+  },
+  "market-gen-77": {
+    "id": "market-gen-77",
+    "title": "Will Box office antitrust lawsuit shattered i happen before Dec 31?",
+    "category": "Entertainment",
+    "region": "USA & Americas",
+    "volume": "$4092,000",
+    "closingIn": "3m 24d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-77-yes",
+        "text": "Yes",
+        "prob": "48%",
+        "price": "48¢",
+        "yesPrice": 0.48,
+        "noPrice": 0.52,
+        "yesShares": "25,000",
+        "noShares": "22,000",
+        "change": "+2.2%"
+      },
+      {
+        "id": "c-market-gen-77-no",
+        "text": "No",
+        "prob": "52%",
+        "price": "52¢",
+        "yesPrice": 0.52,
+        "noPrice": 0.48,
+        "yesShares": "43,000",
+        "noShares": "21,000",
+        "change": "+2.2%"
+      }
+    ]
+  },
+  "market-gen-78": {
+    "id": "market-gen-78",
+    "title": "Will CSK wins record revenue in surprise move happen before Dec 31?",
+    "category": "Sports",
+    "region": "USA & Americas",
+    "volume": "$2741,000",
+    "closingIn": "10m 3d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-78-yes",
+        "text": "Yes",
+        "prob": "64%",
+        "price": "64¢",
+        "yesPrice": 0.64,
+        "noPrice": 0.36,
+        "yesShares": "38,000",
+        "noShares": "16,000",
+        "change": "+8.0%"
+      },
+      {
+        "id": "c-market-gen-78-no",
+        "text": "No",
+        "prob": "36%",
+        "price": "36¢",
+        "yesPrice": 0.36,
+        "noPrice": 0.64,
+        "yesShares": "25,000",
+        "noShares": "28,000",
+        "change": "+8.0%"
+      }
+    ]
+  },
+  "market-gen-79": {
+    "id": "market-gen-79",
+    "title": "Will Oscar antitrust lawsuit predictions in s happen before Dec 31?",
+    "category": "Entertainment",
+    "region": "Global",
+    "volume": "$2615,000",
+    "closingIn": "3m 13d",
+    "creator": "Oracle Bot",
+    "contracts": [
+      {
+        "id": "c-market-gen-79-yes",
+        "text": "Yes",
+        "prob": "67%",
+        "price": "67¢",
+        "yesPrice": 0.67,
+        "noPrice": 0.33,
+        "yesShares": "29,000",
+        "noShares": "16,000",
+        "change": "+2.4%"
+      },
+      {
+        "id": "c-market-gen-79-no",
+        "text": "No",
+        "prob": "33%",
+        "price": "33¢",
+        "yesPrice": 0.33,
+        "noPrice": 0.67,
+        "yesShares": "38,000",
+        "noShares": "48,000",
+        "change": "+2.4%"
+      }
+    ]
+  }
+}

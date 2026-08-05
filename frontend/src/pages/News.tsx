@@ -34,7 +34,7 @@ const INITIAL_NEWS_ITEMS: NewsItem[] = [
     timeAgo: '12m ago',
     category: 'Economy & RBI',
     region: 'India & South Asia',
-    marketId: 'rbi-repo-cut-2026',
+    marketId: 'pub-13',
     marketTitle: 'Will RBI cut the Repo Rate below 6.0% before Dec 31, 2026?',
     yesPrice: 0.42,
     noPrice: 0.58,
@@ -52,7 +52,7 @@ const INITIAL_NEWS_ITEMS: NewsItem[] = [
     timeAgo: '28m ago',
     category: 'AI & Tech',
     region: 'USA & Americas',
-    marketId: 'gpt5-release-2026',
+    marketId: 'pub-5',
     marketTitle: 'Will OpenAI officially release GPT-5 before November 30, 2026?',
     yesPrice: 0.68,
     noPrice: 0.32,
@@ -70,7 +70,7 @@ const INITIAL_NEWS_ITEMS: NewsItem[] = [
     timeAgo: '45m ago',
     category: 'Sports',
     region: 'India & South Asia',
-    marketId: 'ipl-2027-winner',
+    marketId: 'pub-15',
     marketTitle: 'Will Mumbai Indians win the IPL 2027 Trophy?',
     yesPrice: 0.26,
     noPrice: 0.74,
@@ -88,7 +88,7 @@ const INITIAL_NEWS_ITEMS: NewsItem[] = [
     timeAgo: '1h ago',
     category: 'Politics & Law',
     region: 'Europe & UK',
-    marketId: 'eu-ai-antitrust-fine',
+    marketId: 'pub-9',
     marketTitle: 'Will the EU issue a >$500M antitrust fine against a US tech giant in 2026?',
     yesPrice: 0.54,
     noPrice: 0.46,
@@ -106,7 +106,7 @@ const INITIAL_NEWS_ITEMS: NewsItem[] = [
     timeAgo: '2h ago',
     category: 'Entertainment',
     region: 'Global',
-    marketId: 'gta6-1b-opening-weekend',
+    marketId: 'pub-7',
     marketTitle: 'Will GTA 6 generate over $1.5 Billion in global sales within 72 hours of launch?',
     yesPrice: 0.82,
     noPrice: 0.18,
@@ -124,7 +124,7 @@ const INITIAL_NEWS_ITEMS: NewsItem[] = [
     timeAgo: '3h ago',
     category: 'Crypto & DeFi',
     region: 'Asia-Pacific',
-    marketId: 'btc-120k-december',
+    marketId: 'pub-2',
     marketTitle: 'Will Bitcoin (BTC) touch $120,000 on major spot exchanges before Dec 31?',
     yesPrice: 0.48,
     noPrice: 0.52,
@@ -414,7 +414,7 @@ export function News() {
       <Dialog
         isOpen={isAiGeneratorOpen}
         onClose={() => setIsAiGeneratorOpen(false)}
-        title="🤖 Submit News to Auto-Open Market"
+        title="🤖 Submit News to Auto-Open Market (Simulated Demo)"
         description="Paste a breaking world news URL or headline. Our AI Oracle will verify the report, structure the binary YES/NO rules, and seed $25,000 in Virtual Cash liquidity via the AMM bot!"
       >
         <form onSubmit={handleAutoGenerateMarket} className="space-y-4 pt-2">
@@ -461,7 +461,7 @@ export function News() {
       <Dialog
         isOpen={!!activeTradeItem}
         onClose={() => setActiveTradeItem(null)}
-        title={`⚡ Quick Trade: ${tradeSide} on Breaking News`}
+        title={`⚡ Quick Trade: ${tradeSide} on Breaking News (Demo)`}
         description={activeTradeItem?.marketTitle}
       >
         {activeTradeItem && (
@@ -470,7 +470,7 @@ export function News() {
               <div>
                 <div className="text-[10px] font-mono font-bold text-muted-foreground uppercase">Selected Outcome</div>
                 <div className={`text-lg font-black ${tradeSide === 'YES' ? 'text-emerald-500' : 'text-rose-500'}`}>
-                  {tradeSide} ({(tradeSide === 'YES' ? activeTradeItem.yesPrice : activeTradeItem.noPrice) * 100}¢ per share)
+                  {tradeSide} ({((tradeSide === 'YES' ? activeTradeItem.yesPrice : activeTradeItem.noPrice) * 100).toFixed(0)}¢ per share)
                 </div>
               </div>
               <div className="text-right font-mono">

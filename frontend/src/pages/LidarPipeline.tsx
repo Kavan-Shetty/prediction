@@ -3,6 +3,7 @@ import { Upload, FileDown, Loader2, Server, CheckCircle, AlertCircle, Settings, 
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { PointCloudViewer } from '../components/PointCloudViewer';
+import { BASE_URL } from '../lib/api';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -55,7 +56,7 @@ export const LidarPipeline: React.FC<LidarPipelineProps> = () => {
 
     setJobStatus('Processing');
     try {
-      const response = await fetch('http://localhost:8000/api/lidar/upload', {
+      const response = await fetch(`${BASE_URL}/lidar/upload`, {
         method: 'POST',
         body: formData,
       });
@@ -72,7 +73,7 @@ export const LidarPipeline: React.FC<LidarPipelineProps> = () => {
     if (jobId && jobStatus === 'Processing') {
       interval = setInterval(async () => {
         try {
-          const res = await fetch(`http://localhost:8000/api/lidar/jobs/${jobId}`);
+          const res = await fetch(`${BASE_URL}/lidar/jobs/${jobId}`);
           const data = await res.json();
           if (data.status === 'Completed') {
             setJobStatus('Completed');
@@ -265,10 +266,10 @@ export const LidarPipeline: React.FC<LidarPipelineProps> = () => {
                   {jobStatus === 'Completed' && downloadFile && (
                     <div className="flex-1 flex flex-col min-h-0 space-y-4">
                         <div className="flex-1 rounded-2xl overflow-hidden border border-white/10 min-h-[300px]">
-                            <PointCloudViewer url={`http://localhost:8000/api/lidar/download/${downloadFile}`} />
+                            <PointCloudViewer url={`${BASE_URL}/lidar/download/${downloadFile}`} />
                         </div>
                         <a
-                          href={`http://localhost:8000/api/lidar/download/${downloadFile}`}
+                          href={`${BASE_URL}/lidar/download/${downloadFile}`}
                           className="w-full py-3 rounded-xl font-medium text-center border border-white/20 hover:bg-white/10 transition-colors flex items-center justify-center gap-2 group shrink-0"
                         >
                           <FileDown className="w-5 h-5 text-white/70 group-hover:text-white" />

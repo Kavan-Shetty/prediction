@@ -401,7 +401,7 @@ export function BetDetail() {
                 </h3>
                 {!aiExplanation && !isAiExplaining && (
                   <Button onClick={handleAskAi} size="sm" variant="outline" className="h-8 text-xs font-bold border-purple-500/40 text-purple-400 hover:bg-purple-500/10 flex items-center gap-1.5 shadow-sm">
-                    <Sparkles className="w-3.5 h-3.5" /> Ask why price is moving
+                    <Sparkles className="w-3.5 h-3.5" /> Ask AI Oracle (Demo)
                   </Button>
                 )}
               </div>
