@@ -2,11 +2,21 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from dotenv import load_dotenv
-from routers import lidar, groups, markets, trades
+from routers import lidar, groups, markets, trades, admin
+import asyncio
+from services.scraper import start_scraper_daemon
+from contextlib import asynccontextmanager
 
 load_dotenv()
 
-app = FastAPI(title="Prediction App API")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Start the background AI scraper daemon
+    task = asyncio.create_task(start_scraper_daemon(interval_seconds=3600))
+    yield
+    task.cancel()
+
+app = FastAPI(title="Prediction App API", lifespan=lifespan)
 
 # Configure CORS for frontend access
 app.add_middleware(
@@ -21,6 +31,7 @@ app.include_router(lidar.router, prefix="/api/lidar", tags=["lidar"])
 app.include_router(groups.router)
 app.include_router(markets.router)
 app.include_router(trades.router)
+app.include_router(admin.router)
 
 @app.get("/")
 def read_root():

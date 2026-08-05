@@ -9,6 +9,7 @@ import { GroupDetail } from './pages/GroupDetail';
 import { BetDetail } from './pages/BetDetail';
 import { Leaderboard } from './pages/Leaderboard';
 import { Profile } from './pages/Profile';
+import { AdminQueue } from './pages/AdminQueue';
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/bets/:id" element={<BetDetail />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/admin" element={<AdminQueue />} />
           </Route>
           {/* Default Route: Go to Global Public Polymarket Exchange */}
           <Route path="/" element={<Navigate to="/explore" replace />} />
