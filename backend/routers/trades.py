@@ -44,12 +44,37 @@ def place_trade(req: TradeRequest, user_id: str = Depends(get_current_user_id)):
         group_id = m_res.data[0]["group_id"]
         current_vol = float(m_res.data[0]["volume"])
         
-        # 2. Get outcome to calculate shares based on price
-        o_res = supabase.table("outcomes").select("current_price, shares_pool").eq("id", req.outcome_id).execute()
-        if not o_res.data:
+        # AMM CPMM LOGIC (x * y = k)
+        all_outcomes = supabase.table("outcomes").select("id, shares_pool").eq("market_id", req.market_id).execute()
+        if not all_outcomes.data:
+            raise HTTPException(status_code=404, detail="Market outcomes not found")
+            
+        target_outcome = next((o for o in all_outcomes.data if o["id"] == req.outcome_id), None)
+        if not target_outcome:
             raise HTTPException(status_code=404, detail="Outcome not found")
-        price = float(o_res.data[0]["current_price"])
-        shares_bought = round(req.amount / max(0.01, price), 2)
+            
+        # Calculate K (constant product)
+        k = 1.0
+        for o in all_outcomes.data:
+            k *= float(o["shares_pool"])
+            
+        # Distribute the $amount invested into all *other* pools (since the AMM mints paired shares and keeps the rest)
+        new_other_pools = {}
+        for o in all_outcomes.data:
+            if o["id"] != req.outcome_id:
+                new_other_pools[o["id"]] = float(o["shares_pool"]) + req.amount
+                
+        # Calculate new target pool to maintain K
+        new_k_partial = 1.0
+        for val in new_other_pools.values():
+            new_k_partial *= val
+            
+        new_target_pool = k / new_k_partial
+        shares_bought = float(target_outcome["shares_pool"]) - new_target_pool
+        
+        if shares_bought <= 0:
+            raise HTTPException(status_code=400, detail="Trade amount too small or slippage too high")
+        shares_bought = round(shares_bought, 2)
         
         # 3. Get user balance in this group
         if user_id != "00000000-0000-0000-0000-000000000000":
@@ -79,16 +104,19 @@ def place_trade(req: TradeRequest, user_id: str = Depends(get_current_user_id)):
         # 5. Update market volume
         supabase.table("markets").update({"volume": current_vol + req.amount}).eq("id", req.market_id).execute()
         
-        # 6. Slightly adjust price (simple simulation: bought outcome gains 2% price, others drop)
-        all_outcomes = supabase.table("outcomes").select("id, current_price").eq("market_id", req.market_id).execute()
-        if all_outcomes.data and len(all_outcomes.data) == 2:
-            for out in all_outcomes.data:
-                p = float(out["current_price"])
-                if out["id"] == req.outcome_id:
-                    new_p = min(0.99, round(p + 0.02, 2))
-                else:
-                    new_p = max(0.01, round(p - 0.02, 2))
-                supabase.table("outcomes").update({"current_price": new_p}).eq("id", out["id"]).execute()
+        # 6. Adjust odds and liquidity pools using the AMM invariant
+        updated_pools = new_other_pools.copy()
+        updated_pools[req.outcome_id] = new_target_pool
+        
+        # Calculate new exact probabilities (inverse proportionality)
+        inv_sum = sum(1.0 / p for p in updated_pools.values())
+        
+        for o_id, pool_val in updated_pools.items():
+            new_price = (1.0 / pool_val) / inv_sum
+            supabase.table("outcomes").update({
+                "shares_pool": round(pool_val, 4),
+                "current_price": round(new_price, 4)
+            }).eq("id", o_id).execute()
                 
         return {
             "id": trade_res.data[0]["id"] if trade_res.data else str(uuid.uuid4())[:8],
