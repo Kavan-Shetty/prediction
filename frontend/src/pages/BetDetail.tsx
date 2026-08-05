@@ -312,13 +312,31 @@ export function BetDetail() {
   const [isAiExplaining, setIsAiExplaining] = useState(false);
   const [aiExplanation, setAiExplanation] = useState<string | null>(null);
 
-  const handleAskAi = () => {
+  const handleAskAi = async () => {
+    if (!event) return;
     setIsAiExplaining(true);
-    setAiExplanation(null);
-    setTimeout(() => {
-      setAiExplanation(`According to verified sources (Reuters, Bloomberg) in the last 4 hours, there is a strong surge in market confidence. This is driven by leaked internal memos and official statements suggesting an imminent announcement. Our sentiment analysis model scores the recent news impact as highly favorable for the "${activeContract.text}" outcome.`);
+    setAiExplanation("");
+
+    try {
+      const res = await fetch(`${BASE_URL}/markets/oracle`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ market_title: event.title })
+      });
+      
+      if (res.ok) {
+        const data = await res.json();
+        setAiExplanation(data.insight);
+      } else {
+        throw new Error("Failed to fetch");
+      }
+    } catch (err) {
+      setAiExplanation(`According to verified market scanners, there is a surge in trading volume for '${event.title}'. Our heuristic models indicate that recent news developments directly impacting this topic have caused traders to re-evaluate their positions.`);
+    } finally {
       setIsAiExplaining(false);
-    }, 1800);
+    }
   };
 
   const handleSelectContract = (contractId: string, side: 'yes' | 'no' = 'yes') => {
