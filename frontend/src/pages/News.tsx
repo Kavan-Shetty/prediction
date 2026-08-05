@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Newspaper, Flame, Sparkles, TrendingUp, Globe, Clock, ArrowUpRight, Zap, CheckCircle2, Bot, ShieldCheck, Filter, Search, Send, PlusCircle } from 'lucide-react';
+import { Newspaper, Flame, Sparkles, TrendingUp, Globe, Clock, ArrowUpRight, Zap, CheckCircle2, Bot, ShieldCheck, Filter, Search, Send, PlusCircle, X, ChevronRight } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Dialog } from '../components/ui/Dialog';
@@ -144,6 +144,9 @@ export function News() {
   const [selectedRegion, setSelectedRegion] = useState('All Nations');
   const [searchQuery, setSearchQuery] = useState('');
   
+  // Sidebar State for Viewing Article + Market
+  const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
+
   // Interactive AI Market Generator state
   const [isAiGeneratorOpen, setIsAiGeneratorOpen] = useState(false);
   const [headlineInput, setHeadlineInput] = useState('');
@@ -219,31 +222,28 @@ export function News() {
   };
 
   return (
-    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-6xl mx-auto">
+    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-4xl mx-auto pb-10">
       {/* Header & AI Oracle Status Banner */}
-      <div className="bg-gradient-to-br from-card via-card/90 to-primary/10 border border-border rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-          <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-500 text-xs font-mono font-extrabold uppercase tracking-wider animate-pulse">
-              <Bot className="w-3.5 h-3.5" /> 50-NATION AI NEWS ORACLE ACTIVE • REAL-TIME FEED
-            </div>
-            <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-foreground flex items-center gap-2.5">
-              <Newspaper className="w-8 h-8 text-primary shrink-0" />
-              Real-Time News & Auto-Opened Markets
-            </h1>
-            <p className="text-xs sm:text-sm text-muted-foreground font-medium max-w-2xl">
-              Just like Polymarket and Kalshi, whenever breaking world news hits across our 50 target nations, our AI Oracle automatically creates a binary prediction market and seeds it with virtual cash liquidity!
-            </p>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-500 text-xs font-mono font-extrabold uppercase tracking-wider animate-pulse mb-2">
+            <Bot className="w-3.5 h-3.5" /> 50-NATION AI NEWS ORACLE ACTIVE
           </div>
-
-          <Button 
-            onClick={() => setIsAiGeneratorOpen(true)}
-            className="w-full md:w-auto h-12 px-6 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-extrabold text-xs sm:text-sm shadow-lg flex items-center justify-center gap-2"
-          >
-            <PlusCircle className="w-4 h-4 shrink-0" />
-            Submit News to Auto-Open Market
-          </Button>
+          <h1 className="text-3xl font-black tracking-tight text-foreground flex items-center gap-2.5">
+            Real-Time News Feed
+          </h1>
+          <p className="text-xs text-muted-foreground font-medium max-w-xl mt-1">
+            Bloomberg-style terminal feed. Every breaking story automatically spawns a verified prediction market via our AI Oracle.
+          </p>
         </div>
+
+        <Button 
+          onClick={() => setIsAiGeneratorOpen(true)}
+          className="h-10 px-5 bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold text-xs shadow-md flex items-center justify-center gap-2"
+        >
+          <PlusCircle className="w-4 h-4 shrink-0" />
+          Submit Custom News
+        </Button>
       </div>
 
       {/* Success Notification */}
@@ -254,28 +254,28 @@ export function News() {
         </div>
       )}
 
-      {/* Filter Toolbar */}
-      <div className="flex flex-col lg:flex-row gap-4 justify-between items-start lg:items-center bg-card p-4 rounded-2xl border border-border/80 shadow-sm">
+      {/* High Density Filter Toolbar */}
+      <div className="flex flex-col md:flex-row gap-3 justify-between items-start md:items-center bg-card p-3 rounded-2xl border border-border/80 shadow-sm">
         {/* Search */}
-        <div className="relative w-full lg:w-72">
-          <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground" />
+        <div className="relative w-full md:w-64 shrink-0">
+          <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
           <Input
-            placeholder="Search news or markets..."
+            placeholder="Search breaking news..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-9 h-10 text-xs font-medium"
+            className="pl-9 h-9 text-xs font-medium bg-background border-border"
           />
         </div>
 
-        {/* Categories */}
-        <div className="flex items-center gap-1.5 overflow-x-auto w-full lg:w-auto pb-1 lg:pb-0 no-scrollbar">
+        {/* Categories (Scrollable) */}
+        <div className="flex items-center gap-1.5 overflow-x-auto w-full pb-1 md:pb-0 no-scrollbar">
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all ${
                 selectedCategory === cat
-                  ? 'bg-primary text-primary-foreground shadow-sm'
+                  ? 'bg-foreground text-background shadow-sm'
                   : 'bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground'
               }`}
             >
@@ -285,132 +285,130 @@ export function News() {
         </div>
       </div>
 
-      {/* Region Pill Bar */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
-        <span className="text-xs font-bold text-muted-foreground flex items-center gap-1 px-2 shrink-0">
-          <Globe className="w-3.5 h-3.5 text-primary" /> Filter Nation:
-        </span>
-        {REGIONS.map((reg) => (
-          <button
-            key={reg}
-            onClick={() => setSelectedRegion(reg)}
-            className={`px-3 py-1 rounded-lg text-[11px] font-mono font-bold whitespace-nowrap border transition-all ${
-              selectedRegion === reg
-                ? 'bg-purple-500/15 border-purple-500/50 text-purple-300 shadow-2xs'
-                : 'bg-background border-border/60 text-muted-foreground hover:border-border hover:text-foreground'
-            }`}
-          >
-            {reg}
-          </button>
-        ))}
-      </div>
-
-      {/* News & Attached Market Cards */}
-      <div className="space-y-4">
+      {/* High Density News Feed */}
+      <div className="space-y-3">
         {filteredNews.length === 0 ? (
           <div className="bg-card border border-border rounded-2xl p-12 text-center space-y-3">
             <Newspaper className="w-10 h-10 text-muted-foreground mx-auto opacity-40" />
-            <h3 className="text-lg font-bold text-foreground">No Breaking News found for this filter</h3>
+            <h3 className="text-lg font-bold text-foreground">No Breaking News found</h3>
             <p className="text-xs text-muted-foreground">Try selecting a different category or nation, or click "Submit News" to auto-open a market!</p>
           </div>
         ) : (
           filteredNews.map((item) => (
             <div 
               key={item.id}
-              className="bg-card border border-border/80 hover:border-primary/50 rounded-2xl p-5 sm:p-6 transition-all shadow-sm hover:shadow-md flex flex-col lg:flex-row justify-between gap-6 relative group overflow-hidden"
+              onClick={() => setSelectedNews(item)}
+              className="bg-card border border-border/80 hover:border-primary/50 rounded-xl p-4 sm:p-5 transition-all shadow-sm hover:shadow-md cursor-pointer flex flex-col gap-2.5 relative group overflow-hidden"
             >
-              {/* Left Column: News Story */}
-              <div className="flex-1 space-y-2.5">
-                <div className="flex flex-wrap items-center gap-2 text-xs">
-                  <span className="font-extrabold text-primary flex items-center gap-1">
-                    📰 {item.source}
-                  </span>
-                  <span className="text-muted-foreground font-mono">•</span>
-                  <span className="text-muted-foreground font-semibold">{item.location}</span>
-                  <span className="text-muted-foreground font-mono">•</span>
-                  <span className="text-muted-foreground font-mono font-bold flex items-center gap-1">
-                    <Clock className="w-3 h-3" /> {item.timeAgo}
-                  </span>
-                  <span className="ml-auto px-2 py-0.5 rounded bg-muted/50 text-muted-foreground font-mono text-[10px] font-bold uppercase border border-border/50">
-                    {item.category}
-                  </span>
-                </div>
-
-                <h3 className="text-lg sm:text-xl font-black text-foreground group-hover:text-primary transition-colors leading-snug">
-                  {item.headline}
-                </h3>
-                
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-medium">
-                  {item.summary}
-                </p>
-
-                <div className="pt-1 flex items-center gap-4 text-[11px] font-mono text-muted-foreground">
-                  <span className="flex items-center gap-1 text-emerald-500 font-bold">
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                    Verified Primary Source
-                  </span>
-                  <span>•</span>
-                  <span>Oracle Trigger: {item.resolvesAt}</span>
-                </div>
+              {/* Top Row: Meta data */}
+              <div className="flex flex-wrap items-center justify-between gap-2 text-[10px] font-bold uppercase tracking-wider">
+                 <div className="flex items-center gap-2">
+                    <span className="text-foreground">📰 {item.source}</span>
+                    <span className="text-muted-foreground font-mono">• {item.timeAgo}</span>
+                 </div>
+                 <div className="flex items-center gap-1.5 text-purple-500 bg-purple-500/10 px-2.5 py-0.5 rounded border border-purple-500/20 shadow-inner group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                    <Bot className="w-3 h-3" /> 1 Market Linked
+                 </div>
               </div>
-
-              {/* Right Column: The Auto-Opened Prediction Market Box */}
-              <div className="w-full lg:w-96 shrink-0 bg-muted/20 border border-border/60 rounded-xl p-4 flex flex-col justify-between space-y-3 relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-primary/10 text-primary text-[9px] font-mono font-extrabold px-2.5 py-0.5 rounded-bl-lg border-b border-l border-primary/20 flex items-center gap-1">
-                  <Sparkles className="w-3 h-3" /> AI ORACLE MARKET
-                </div>
-
-                <div>
-                  <div className="text-[10px] font-mono font-extrabold uppercase tracking-wider text-muted-foreground mb-1">
-                    Attached Prediction Contract
-                  </div>
-                  <Link to={`/bets/${item.marketId}`} className="font-bold text-sm text-foreground hover:text-primary transition-colors line-clamp-2 leading-tight">
-                    {item.marketTitle}
-                  </Link>
-                </div>
-
-                {/* Odds & Price Ladder */}
-                <div className="grid grid-cols-2 gap-2 pt-1">
-                  <button 
-                    onClick={() => { setActiveTradeItem(item); setTradeSide('YES'); }}
-                    className="p-2.5 rounded-lg bg-emerald-500/15 border border-emerald-500/40 hover:bg-emerald-500/25 transition-all text-left group/btn"
-                  >
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs font-black text-emerald-500">YES</span>
-                      <span className="text-xs font-mono font-black text-foreground">{(item.yesPrice * 100).toFixed(0)}¢</span>
-                    </div>
-                    <div className="text-[9px] text-muted-foreground font-mono mt-0.5 flex justify-between">
-                      <span>Buy Share</span>
-                      <span className="text-emerald-500 font-bold">{item.priceChange24h}</span>
-                    </div>
-                  </button>
-
-                  <button 
-                    onClick={() => { setActiveTradeItem(item); setTradeSide('NO'); }}
-                    className="p-2.5 rounded-lg bg-rose-500/15 border border-rose-500/40 hover:bg-rose-500/25 transition-all text-left group/btn"
-                  >
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs font-black text-rose-500">NO</span>
-                      <span className="text-xs font-mono font-black text-foreground">{(item.noPrice * 100).toFixed(0)}¢</span>
-                    </div>
-                    <div className="text-[9px] text-muted-foreground font-mono mt-0.5 flex justify-between">
-                      <span>Buy Share</span>
-                      <span>Inverse</span>
-                    </div>
-                  </button>
-                </div>
-
-                <div className="flex items-center justify-between pt-2 border-t border-border/40 text-[10px] font-mono text-muted-foreground">
-                  <span className="text-primary font-bold">💧 {item.ammLiquidity}</span>
-                  <Link to={`/bets/${item.marketId}`} className="text-foreground hover:text-primary font-bold flex items-center gap-0.5">
-                    Order Book <ArrowUpRight className="w-3 h-3" />
-                  </Link>
-                </div>
-              </div>
+              
+              {/* Headline */}
+              <h3 className="text-base sm:text-lg font-black text-foreground group-hover:text-primary transition-colors leading-snug">
+                {item.headline}
+              </h3>
             </div>
           ))
         )}
       </div>
+
+      {/* Sidebar / Drawer (Slide-in right panel) */}
+      {selectedNews && (
+        <div className="fixed inset-0 z-50 flex justify-end bg-background/80 backdrop-blur-sm animate-in fade-in duration-200">
+          {/* Overlay click to close */}
+          <div className="absolute inset-0" onClick={() => setSelectedNews(null)} />
+          
+          {/* Panel */}
+          <div className="w-full max-w-xl bg-card border-l border-border h-full shadow-2xl animate-in slide-in-from-right duration-300 flex flex-col relative z-10 overflow-y-auto">
+            {/* Sidebar Header */}
+            <div className="sticky top-0 bg-card/95 backdrop-blur z-20 border-b border-border/60 p-4 flex items-center justify-between">
+               <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider flex items-center gap-1">
+                 <Newspaper className="w-3.5 h-3.5" /> Full Article & Market
+               </div>
+               <button onClick={() => setSelectedNews(null)} className="p-2 bg-muted/50 rounded-full hover:bg-muted text-foreground transition-colors">
+                  <X className="w-4 h-4" />
+               </button>
+            </div>
+
+            <div className="p-6 space-y-8 pb-32">
+              {/* Article Content Section */}
+              <div className="space-y-4">
+                 <div className="flex items-center gap-2 text-xs font-bold font-mono text-primary">
+                    {selectedNews.source} • {selectedNews.timeAgo}
+                 </div>
+                 <h2 className="text-2xl font-black leading-tight text-foreground">{selectedNews.headline}</h2>
+                 <p className="text-sm text-muted-foreground font-medium leading-relaxed">
+                   {selectedNews.summary}
+                 </p>
+                 <div className="pt-2 flex items-center gap-4 text-[11px] font-mono text-muted-foreground border-t border-border/40 pt-4">
+                   <span className="flex items-center gap-1 text-emerald-500 font-bold">
+                     <ShieldCheck className="w-3.5 h-3.5" />
+                     Verified Primary Source
+                   </span>
+                   <span>•</span>
+                   <span>{selectedNews.location}</span>
+                 </div>
+              </div>
+
+              {/* Connected Market Section (The Trading Action) */}
+              <div className="bg-muted/20 border border-border/80 rounded-2xl p-5 space-y-4 relative overflow-hidden">
+                <div className="absolute top-0 right-0 bg-primary/10 text-primary text-[9px] font-mono font-extrabold px-3 py-1 rounded-bl-xl border-b border-l border-primary/20 flex items-center gap-1">
+                  <Sparkles className="w-3 h-3" /> AI ORACLE MARKET
+                </div>
+
+                <div>
+                  <div className="text-[10px] font-mono font-extrabold uppercase tracking-wider text-muted-foreground mb-1.5">
+                    Attached Prediction Contract
+                  </div>
+                  <Link to={`/bets/${selectedNews.marketId}`} className="font-bold text-base text-foreground hover:text-primary transition-colors leading-tight pr-10 block">
+                    {selectedNews.marketTitle}
+                  </Link>
+                </div>
+
+                {/* Trading Odds Buttons */}
+                <div className="grid grid-cols-2 gap-3 pt-1">
+                  <button 
+                    onClick={() => { setActiveTradeItem(selectedNews); setTradeSide('YES'); }}
+                    className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-all text-left group/btn relative overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-emerald-500/5 translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-300" />
+                    <div className="relative z-10 flex justify-between items-center">
+                      <span className="text-sm font-black text-emerald-500">YES</span>
+                      <span className="text-base font-mono font-black text-foreground">{(selectedNews.yesPrice * 100).toFixed(0)}¢</span>
+                    </div>
+                  </button>
+
+                  <button 
+                    onClick={() => { setActiveTradeItem(selectedNews); setTradeSide('NO'); }}
+                    className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 hover:bg-rose-500/20 hover:border-rose-500/50 transition-all text-left group/btn relative overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-rose-500/5 translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-300" />
+                    <div className="relative z-10 flex justify-between items-center">
+                      <span className="text-sm font-black text-rose-500">NO</span>
+                      <span className="text-base font-mono font-black text-foreground">{(selectedNews.noPrice * 100).toFixed(0)}¢</span>
+                    </div>
+                  </button>
+                </div>
+
+                <div className="flex items-center justify-between pt-3 border-t border-border/40 text-[11px] font-mono font-bold text-muted-foreground">
+                  <span className="text-primary">💧 {selectedNews.ammLiquidity}</span>
+                  <Link to={`/bets/${selectedNews.marketId}`} className="text-foreground hover:text-primary flex items-center gap-1 bg-background px-3 py-1.5 rounded-md border border-border shadow-sm">
+                    Open Deep Order Book <ChevronRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Modal 1: Submit News to Auto-Open Market */}
       <Dialog
@@ -452,7 +450,7 @@ export function News() {
             <Button type="button" variant="outline" onClick={() => setIsAiGeneratorOpen(false)} className="h-10 px-5 font-semibold text-xs">
               Cancel
             </Button>
-            <Button type="submit" disabled={!headlineInput.trim() || isGenerating} className="h-10 px-6 font-bold bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-xs shadow-md flex items-center gap-2">
+            <Button type="submit" disabled={!headlineInput.trim() || isGenerating} className="h-10 px-6 font-bold bg-primary hover:bg-primary/90 text-primary-foreground text-xs shadow-md flex items-center gap-2">
               {isGenerating ? '🤖 AI Verifying Report (2s)...' : '⚡ Auto-Open Prediction Market'}
             </Button>
           </div>
