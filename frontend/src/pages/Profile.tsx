@@ -201,44 +201,61 @@ export function Profile() {
         </div>
       )}
 
-      {/* Main Balance & Stats Card */}
+      {/* Advanced Analytics & Portfolio Engine */}
       <div className="bg-gradient-to-br from-card via-card/90 to-primary/10 border border-border rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-5">
-            <div className="w-20 h-20 bg-primary/20 rounded-2xl border border-primary/40 flex items-center justify-center text-2xl font-bold font-mono text-primary shadow-inner">
+        <div className="flex flex-col xl:flex-row gap-8">
+          {/* Left: User Identity */}
+          <div className="flex items-center gap-5 xl:w-1/3">
+            <div className="w-24 h-24 bg-primary/20 rounded-3xl border border-primary/40 flex items-center justify-center text-3xl font-black font-mono text-primary shadow-inner">
               KV
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-foreground">Kavan (You)</h2>
-              <p className="text-xs text-muted-foreground font-medium">Syndicate Leader • Active Plan: <span className="text-primary font-bold">{currentVipMeta.name}</span></p>
+              <h2 className="text-3xl font-black text-foreground">Kavan (You)</h2>
+              <p className="text-sm text-muted-foreground font-medium mt-0.5">Syndicate Leader • <span className="text-primary font-bold">{currentVipMeta.name}</span></p>
               <div className="flex flex-wrap items-center gap-2 mt-2">
-                <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-500 text-[10px] font-mono font-bold uppercase border border-emerald-500/30 flex items-center gap-1">
-                  <ShieldCheck className="w-3 h-3" /> 100% Fair Play
+                <span className="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-500 text-[10px] font-mono font-bold uppercase border border-emerald-500/30 flex items-center gap-1">
+                  <ShieldCheck className="w-3.5 h-3.5" /> 100% Fair Play
                 </span>
-                <span className="px-2 py-0.5 rounded bg-purple-500/10 text-purple-500 text-[10px] font-mono font-bold uppercase border border-purple-500/30">
+                <span className="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-500 text-[10px] font-mono font-bold uppercase border border-purple-500/30">
                   Top 5% Analyst
                 </span>
-                {activeVipTier !== 'free' && (
-                  <span className="px-2 py-0.5 rounded bg-amber-500/15 text-amber-500 text-[10px] font-mono font-extrabold uppercase border border-amber-500/30 flex items-center gap-1">
-                    <Crown className="w-3 h-3" /> VIP Subscriber
-                  </span>
-                )}
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 w-full md:w-auto shrink-0">
-            <div className="bg-background/80 backdrop-blur rounded-2xl p-4 border border-border/60 text-center min-w-[130px]">
+          {/* Right: Deep Analytics Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 xl:w-2/3">
+            <div className="bg-background/80 backdrop-blur rounded-2xl p-4 border border-border/60 text-center flex flex-col justify-center">
               <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1">Available Cash</div>
-              <div className="text-2xl sm:text-3xl font-mono font-black text-success">${balance}.00</div>
-              <div className="text-[10px] text-muted-foreground font-mono mt-0.5">Zero INR Risk</div>
+              <div className="text-2xl font-mono font-black text-success">${balance}.00</div>
             </div>
-            <div className="bg-background/80 backdrop-blur rounded-2xl p-4 border border-border/60 text-center min-w-[130px]">
+            
+            <div className="bg-background/80 backdrop-blur rounded-2xl p-4 border border-border/60 text-center flex flex-col justify-center">
+              <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1">Net Profit</div>
+              <div className="text-2xl font-mono font-black text-emerald-500">+$3,200</div>
+            </div>
+
+            <div className="bg-background/80 backdrop-blur rounded-2xl p-4 border border-border/60 text-center flex flex-col justify-center">
+              <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1">Global Rank</div>
+              <div className="text-2xl font-mono font-black text-foreground">#182</div>
+            </div>
+
+            <div className="bg-background/80 backdrop-blur rounded-2xl p-4 border border-border/60 text-center flex flex-col justify-center">
+              <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1">Accuracy</div>
+              <div className="text-2xl font-mono font-black text-primary">74%</div>
+            </div>
+
+            <div className="bg-background/80 backdrop-blur rounded-2xl p-4 border border-border/60 text-center flex flex-col justify-center">
+              <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1">Best Category</div>
+              <div className="text-sm font-black text-cyan-500 uppercase mt-1">AI & Tech</div>
+            </div>
+
+            <div className="bg-background/80 backdrop-blur rounded-2xl p-4 border border-border/60 text-center flex flex-col justify-center relative overflow-hidden group cursor-pointer hover:border-orange-500/50 transition-colors">
+              <div className="absolute inset-0 bg-orange-500/5 group-hover:bg-orange-500/10 transition-colors" />
               <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1 flex items-center justify-center gap-1">
-                <Flame className="w-3.5 h-3.5 text-orange-500 animate-pulse" /> Daily Streak
+                <Flame className="w-3.5 h-3.5 text-orange-500" /> Win Streak
               </div>
-              <div className="text-2xl sm:text-3xl font-mono font-black text-orange-500">{streak} Days</div>
-              <div className="text-[10px] text-muted-foreground font-mono mt-0.5">2x Reward Multiplier</div>
+              <div className="text-2xl font-mono font-black text-orange-500">{streak} Days</div>
             </div>
           </div>
         </div>
@@ -401,27 +418,27 @@ export function Profile() {
             </Button>
           </div>
 
-          {/* 4. Emergency Bankruptcy Bailout */}
-          <div className="bg-card border border-border rounded-2xl p-5 shadow-sm hover:border-amber-500/50 transition-all flex flex-col justify-between">
+          {/* 4. Daily Streak Ad Boost */}
+          <div className="bg-card border border-border rounded-2xl p-5 shadow-sm hover:border-orange-500/50 transition-all flex flex-col justify-between">
             <div className="flex justify-between items-start mb-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-500 flex items-center justify-center">
-                <ShieldAlert className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-xl bg-orange-500/15 text-orange-500 flex items-center justify-center">
+                <Zap className="w-5 h-5" />
               </div>
-              <span className="font-mono font-extrabold text-success text-sm">+200 Cash</span>
+              <span className="font-mono font-extrabold text-success text-sm">2x Booster</span>
             </div>
             <div className="mb-4">
-              <h4 className="font-bold text-foreground text-base">Emergency Bankruptcy Bailout</h4>
+              <h4 className="font-bold text-foreground text-base">Double Daily Streak Reward</h4>
               <p className="text-xs text-muted-foreground mt-0.5">
-                On a bad prediction losing streak? Once every 24 hours, claim a free emergency bailout so you are never permanently out!
+                Watch a quick 5-second ad to instantly double your daily login reward tomorrow! Maximize your Virtual Cash.
               </p>
             </div>
             <Button 
               variant="outline"
               onClick={handleClaimBailout}
               disabled={bailoutClaimed}
-              className={`w-full font-bold text-xs h-10 border-amber-500/40 text-amber-500 hover:bg-amber-500/10 ${bailoutClaimed ? 'opacity-50' : ''}`}
+              className={`w-full font-bold text-xs h-10 border-orange-500/40 text-orange-500 hover:bg-orange-500/10 ${bailoutClaimed ? 'opacity-50' : ''}`}
             >
-              {bailoutClaimed ? '✓ Bailout Claimed Today' : '🆘 Claim Emergency Bailout (+$200)'}
+              {bailoutClaimed ? '✓ 2x Boost Activated' : '⚡ Activate 2x Reward Boost'}
             </Button>
           </div>
         </div>

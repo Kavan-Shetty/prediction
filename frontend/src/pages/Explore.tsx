@@ -445,6 +445,62 @@ export function Explore() {
         </div>
       </div>
 
+      {/* Daily Quests Widget (Retention Feature) */}
+      <div className="bg-gradient-to-r from-card via-card to-emerald-500/5 border border-emerald-500/20 rounded-2xl p-4 sm:p-5 shadow-sm relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-3xl rounded-full" />
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center shrink-0">
+            <Trophy className="w-5 h-5 text-emerald-500" />
+          </div>
+          <div>
+            <h3 className="text-sm font-black text-foreground flex items-center gap-2">
+              Daily Quests <span className="px-1.5 py-0.5 rounded text-[9px] bg-emerald-500/20 text-emerald-500 uppercase tracking-widest font-mono">Resets in 4h</span>
+            </h3>
+            <p className="text-xs font-medium text-muted-foreground mt-0.5">Complete tasks to earn Virtual Cash and boost your global rank!</p>
+          </div>
+        </div>
+        
+        <div className="flex gap-2 w-full md:w-auto overflow-x-auto pb-1 no-scrollbar">
+          <div className="flex-shrink-0 bg-background/50 border border-border/80 rounded-xl p-2.5 w-44 flex flex-col justify-between relative overflow-hidden">
+            <div className="absolute inset-0 bg-emerald-500/5 animate-pulse" />
+            <div className="flex justify-between items-start mb-2 relative z-10">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Log In</span>
+              <span className="text-xs font-black text-emerald-500">+$50</span>
+            </div>
+            <div className="text-xs font-bold text-foreground relative z-10">3 Day Streak! 🔥</div>
+            <div className="w-full h-1.5 bg-muted mt-2 rounded-full overflow-hidden relative z-10">
+              <div className="h-full bg-emerald-500 w-full" />
+            </div>
+          </div>
+          <div className="flex-shrink-0 bg-background/50 border border-border/80 rounded-xl p-2.5 w-44 flex flex-col justify-between hover:border-border transition-colors cursor-pointer">
+            <div className="flex justify-between items-start mb-2">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Sports Trader</span>
+              <span className="text-xs font-black text-emerald-500">+$150</span>
+            </div>
+            <div className="text-[10px] font-bold text-foreground leading-tight">Trade $200 on IPL 2027</div>
+            <div className="flex items-center gap-2 mt-2">
+              <div className="flex-1 h-1.5 bg-muted rounded-full overflow-hidden">
+                <div className="h-full bg-emerald-500 w-0" />
+              </div>
+              <span className="text-[9px] font-mono font-bold text-muted-foreground">0/200</span>
+            </div>
+          </div>
+          <div className="flex-shrink-0 bg-background/50 border border-border/80 rounded-xl p-2.5 w-44 flex flex-col justify-between hover:border-border transition-colors cursor-pointer">
+            <div className="flex justify-between items-start mb-2">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Prophet</span>
+              <span className="text-xs font-black text-emerald-500">+$500</span>
+            </div>
+            <div className="text-[10px] font-bold text-foreground leading-tight">Win 3 markets today</div>
+            <div className="flex items-center gap-2 mt-2">
+              <div className="flex-1 h-1.5 bg-muted rounded-full overflow-hidden">
+                <div className="h-full bg-emerald-500 w-1/3" />
+              </div>
+              <span className="text-[9px] font-mono font-bold text-muted-foreground">1/3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Public Exchange Feed */}
       {filteredEvents.length === 0 ? (
         <div className="text-center py-16 bg-card border border-border rounded-2xl p-8 space-y-3">
