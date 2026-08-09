@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { User, LogOut, Flame, History, Gift, Tv, Users, ShieldAlert, CheckCircle2, Copy, Sparkles, TrendingUp, ShieldCheck, Zap, Crown, Award, Send, Check } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { User, LogOut, Flame, History, Gift, Tv, Users, ShieldAlert, CheckCircle2, Copy, Sparkles, TrendingUp, ShieldCheck, Zap, Crown, Award, Send, Check, Edit2 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Dialog } from '../components/ui/Dialog';
@@ -103,6 +103,62 @@ export function Profile() {
   const [giftTier, setGiftTier] = useState('league');
   const [giftMessage, setGiftMessage] = useState('Congratulations on winning our prediction league! Enjoy your subscription prize!');
 
+  // Profile Identity State
+  const [displayName, setDisplayName] = useState('Kavan (You)');
+  const [bio, setBio] = useState('Syndicate Leader');
+  const [avatarUrl, setAvatarUrl] = useState('');
+  const [isEditingProfile, setIsEditingProfile] = useState(false);
+  const [editForm, setEditForm] = useState({ displayName: '', bio: '', avatarUrl: '' });
+  const [isSaving, setIsSaving] = useState(false);
+
+  useEffect(() => {
+    // Fetch user profile from backend
+    fetch('http://localhost:8000/api/users/me')
+      .then(res => res.json())
+      .then(data => {
+        if (data.display_name) setDisplayName(data.display_name);
+        if (data.bio) setBio(data.bio);
+        if (data.avatar_url) setAvatarUrl(data.avatar_url);
+        if (data.balance) setBalance(data.balance);
+        if (data.streak) setStreak(data.streak);
+        if (data.vip_tier) setActiveVipTier(data.vip_tier);
+      })
+      .catch(err => console.error("Error fetching profile:", err));
+  }, []);
+
+  const handleOpenEditProfile = () => {
+    setEditForm({ displayName, bio, avatarUrl });
+    setIsEditingProfile(true);
+  };
+
+  const handleSaveProfile = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSaving(true);
+    try {
+      const res = await fetch('http://localhost:8000/api/users/me', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          display_name: editForm.displayName,
+          bio: editForm.bio,
+          avatar_url: editForm.avatarUrl
+        })
+      });
+      if (res.ok) {
+        setDisplayName(editForm.displayName);
+        setBio(editForm.bio);
+        setAvatarUrl(editForm.avatarUrl);
+        setIsEditingProfile(false);
+        setAdSuccess("✅ Profile successfully updated!");
+        setTimeout(() => setAdSuccess(null), 4000);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   // 1. Claim Daily Login Bonus
   const handleClaimDaily = () => {
     if (dailyClaimed) return;
@@ -205,22 +261,29 @@ export function Profile() {
       <div className="bg-gradient-to-br from-card via-card/90 to-primary/10 border border-border rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
         <div className="flex flex-col xl:flex-row gap-8">
           {/* Left: User Identity */}
-          <div className="flex items-center gap-5 xl:w-1/3">
-            <div className="w-24 h-24 bg-primary/20 rounded-3xl border border-primary/40 flex items-center justify-center text-3xl font-black font-mono text-primary shadow-inner">
-              KV
-            </div>
-            <div>
-              <h2 className="text-3xl font-black text-foreground">Kavan (You)</h2>
-              <p className="text-sm text-muted-foreground font-medium mt-0.5">Syndicate Leader • <span className="text-primary font-bold">{currentVipMeta.name}</span></p>
-              <div className="flex flex-wrap items-center gap-2 mt-2">
-                <span className="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-500 text-[10px] font-mono font-bold uppercase border border-emerald-500/30 flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5" /> 100% Fair Play
-                </span>
-                <span className="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-500 text-[10px] font-mono font-bold uppercase border border-purple-500/30">
-                  Top 5% Analyst
-                </span>
+          <div className="flex flex-col gap-5 xl:w-1/3">
+            <div className="flex items-center gap-5">
+              {avatarUrl ? (
+                <img src={avatarUrl} alt="Avatar" className="w-24 h-24 bg-primary/10 rounded-3xl border border-primary/40 object-cover shadow-inner" />
+              ) : (
+                <div className="w-24 h-24 bg-primary/20 rounded-3xl border border-primary/40 flex items-center justify-center text-3xl font-black font-mono text-primary shadow-inner">
+                  {displayName.substring(0, 2).toUpperCase()}
+                </div>
+              )}
+              
+              <div>
+                <h2 className="text-3xl font-black text-foreground">{displayName}</h2>
+                <p className="text-sm text-muted-foreground font-medium mt-0.5">{bio} • <span className="text-primary font-bold">{currentVipMeta.name}</span></p>
+                <div className="flex flex-wrap items-center gap-2 mt-2">
+                  <span className="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-500 text-[10px] font-mono font-bold uppercase border border-emerald-500/30 flex items-center gap-1">
+                    <ShieldCheck className="w-3.5 h-3.5" /> 100% Fair Play
+                  </span>
+                </div>
               </div>
             </div>
+            <Button onClick={handleOpenEditProfile} variant="outline" size="sm" className="w-full gap-2 text-xs font-bold border-border/60 hover:bg-muted/50">
+              <Edit2 className="w-3.5 h-3.5" /> Edit Profile
+            </Button>
           </div>
 
           {/* Right: Deep Analytics Grid */}
@@ -537,6 +600,54 @@ export function Profile() {
             <Button type="submit" disabled={!giftRecipient.trim()} className="h-10 px-6 font-bold bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-xs shadow-md flex items-center gap-2">
               <Send className="w-3.5 h-3.5" />
               Send Gift Subscription
+            </Button>
+          </div>
+        </form>
+      </Dialog>
+
+      {/* Edit Profile Modal */}
+      <Dialog isOpen={isEditingProfile} onClose={() => setIsEditingProfile(false)} title="Edit Profile Settings">
+        <form onSubmit={handleSaveProfile} className="space-y-4 pt-2">
+          <div className="space-y-1.5">
+            <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Display Name</label>
+            <Input 
+              value={editForm.displayName}
+              onChange={(e) => setEditForm(prev => ({ ...prev, displayName: e.target.value }))}
+              placeholder="Your username"
+              required
+              className="h-10 text-sm font-semibold"
+            />
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Bio / Status</label>
+            <textarea 
+              value={editForm.bio}
+              onChange={(e) => setEditForm(prev => ({ ...prev, bio: e.target.value }))}
+              placeholder="Tell us your trading style..."
+              rows={3}
+              maxLength={160}
+              className="w-full p-3 rounded-xl bg-background border border-border text-xs font-medium focus:outline-none focus:border-primary resize-none"
+            />
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Avatar Image URL (Optional)</label>
+            <Input 
+              value={editForm.avatarUrl}
+              onChange={(e) => setEditForm(prev => ({ ...prev, avatarUrl: e.target.value }))}
+              placeholder="https://example.com/avatar.jpg"
+              className="h-10 text-sm"
+            />
+            <p className="text-[10px] text-muted-foreground">Paste a direct link to an image to update your profile picture.</p>
+          </div>
+
+          <div className="pt-3 flex justify-end gap-2 border-t border-border/40">
+            <Button type="button" variant="outline" onClick={() => setIsEditingProfile(false)} className="h-10 px-5 font-semibold text-xs">
+              Cancel
+            </Button>
+            <Button type="submit" disabled={isSaving} className="h-10 px-6 font-bold bg-primary hover:bg-primary/90 text-primary-foreground text-xs shadow-md">
+              {isSaving ? "Saving..." : "Save Profile"}
             </Button>
           </div>
         </form>

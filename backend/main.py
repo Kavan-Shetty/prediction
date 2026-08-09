@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from dotenv import load_dotenv
-from routers import lidar, groups, markets, trades, admin
+from routers import lidar, groups, markets, trades, admin, users
 import asyncio
 from services.scraper import start_scraper_daemon
 from contextlib import asynccontextmanager
@@ -32,6 +32,7 @@ app.include_router(groups.router)
 app.include_router(markets.router)
 app.include_router(trades.router)
 app.include_router(admin.router)
+app.include_router(users.router)
 
 @app.get("/")
 def read_root():
