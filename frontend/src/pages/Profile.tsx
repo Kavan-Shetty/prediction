@@ -115,7 +115,7 @@ export function Profile() {
   const [twoFactorEnabled, setTwoFactorEnabled] = useState(false);
   
   // UI State
-  const [activeTab, setActiveTab] = useState<'overview' | 'wallet' | 'settings' | 'security'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'wallet' | 'settings' | 'security' | 'limits'>('overview');
   const [isEditingProfile, setIsEditingProfile] = useState(false);
   const [editForm, setEditForm] = useState({ username: '', displayName: '', bio: '', avatarUrl: '', bannerUrl: '', isPublic: true });
   const [isSaving, setIsSaving] = useState(false);
@@ -713,7 +713,10 @@ export function Profile() {
       )}
 
       {/* Gifting Dialog */}
-      <Dialog isOpen={isGiftingOpen} onClose={() => setIsGiftingOpen(false)} title="Gift VIP Subscription">
+      <Dialog 
+        isOpen={isGiftingOpen} 
+        onClose={() => setIsGiftingOpen(false)} 
+        title="Gift VIP Subscription"
         description="The ultimate legal tournament prize! Reward tournament winners or syndicate friends with organizer superpowers."
       >
         <form onSubmit={handleSendGift} className="space-y-4 pt-2">

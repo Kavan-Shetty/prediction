@@ -6,6 +6,8 @@ import { Clock, ArrowLeft, Loader2, CheckCircle2, Layers, Check, Landmark, Troph
 import { fetchMarketDetail, placeTrade } from '../lib/api';
 import { cn } from '../lib/utils';
 
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+
 // Helper for formatting cents and percentages
 const formatCents = (val: number) => `${Math.round(val * 100)}¢`;
 const formatProb = (val: number) => `${Math.round(val * 100)}%`;
