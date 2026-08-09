@@ -6,11 +6,22 @@ from routers import lidar, groups, markets, trades, admin, users
 import asyncio
 from services.scraper import start_scraper_daemon
 from contextlib import asynccontextmanager
+import nltk
+import logging
 
 load_dotenv()
 
+logger = logging.getLogger(__name__)
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    # Ensure TextBlob has the required NLTK tokenizers on Render
+    try:
+        nltk.download('punkt_tab', quiet=True)
+        nltk.download('punkt', quiet=True)
+    except Exception as e:
+        logger.warning(f"Failed to download NLTK corporas: {e}")
+
     # Start the background AI scraper daemon
     task = asyncio.create_task(start_scraper_daemon(interval_seconds=3600))
     yield
