@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { User, LogOut, Flame, History, Gift, Tv, Users, ShieldAlert, CheckCircle2, Copy, Sparkles, TrendingUp, ShieldCheck, Zap, Crown, Award, Send, Check, Edit2 } from 'lucide-react';
+import { User, LogOut, Flame, History, Gift, Tv, Users, ShieldAlert, CheckCircle2, Copy, Sparkles, TrendingUp, ShieldCheck, Zap, Crown, Award, Send, Check, Edit2, LayoutDashboard, Wallet, Settings, Shield, PieChart, Activity, Fingerprint, Smartphone } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Dialog } from '../components/ui/Dialog';
@@ -104,11 +104,20 @@ export function Profile() {
   const [giftMessage, setGiftMessage] = useState('Congratulations on winning our prediction league! Enjoy your subscription prize!');
 
   // Profile Identity State
+  const [username, setUsername] = useState('user_123');
   const [displayName, setDisplayName] = useState('Kavan (You)');
   const [bio, setBio] = useState('Syndicate Leader');
   const [avatarUrl, setAvatarUrl] = useState('');
+  const [bannerUrl, setBannerUrl] = useState('');
+  const [level, setLevel] = useState(1);
+  const [xp, setXp] = useState(0);
+  const [isPublic, setIsPublic] = useState(true);
+  const [twoFactorEnabled, setTwoFactorEnabled] = useState(false);
+  
+  // UI State
+  const [activeTab, setActiveTab] = useState<'overview' | 'wallet' | 'settings' | 'security'>('overview');
   const [isEditingProfile, setIsEditingProfile] = useState(false);
-  const [editForm, setEditForm] = useState({ displayName: '', bio: '', avatarUrl: '' });
+  const [editForm, setEditForm] = useState({ username: '', displayName: '', bio: '', avatarUrl: '', bannerUrl: '', isPublic: true });
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
@@ -116,18 +125,24 @@ export function Profile() {
     fetch('http://localhost:8000/api/users/me')
       .then(res => res.json())
       .then(data => {
+        if (data.username) setUsername(data.username);
         if (data.display_name) setDisplayName(data.display_name);
         if (data.bio) setBio(data.bio);
         if (data.avatar_url) setAvatarUrl(data.avatar_url);
+        if (data.banner_url) setBannerUrl(data.banner_url);
         if (data.balance) setBalance(data.balance);
         if (data.streak) setStreak(data.streak);
         if (data.vip_tier) setActiveVipTier(data.vip_tier);
+        if (data.level) setLevel(data.level);
+        if (data.xp) setXp(data.xp);
+        if (data.is_public !== undefined) setIsPublic(data.is_public);
+        if (data.two_factor_enabled !== undefined) setTwoFactorEnabled(data.two_factor_enabled);
       })
       .catch(err => console.error("Error fetching profile:", err));
   }, []);
 
   const handleOpenEditProfile = () => {
-    setEditForm({ displayName, bio, avatarUrl });
+    setEditForm({ username, displayName, bio, avatarUrl, bannerUrl, isPublic });
     setIsEditingProfile(true);
   };
 
@@ -139,15 +154,21 @@ export function Profile() {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          username: editForm.username,
           display_name: editForm.displayName,
           bio: editForm.bio,
-          avatar_url: editForm.avatarUrl
+          avatar_url: editForm.avatarUrl,
+          banner_url: editForm.bannerUrl,
+          is_public: editForm.isPublic
         })
       });
       if (res.ok) {
+        setUsername(editForm.username);
         setDisplayName(editForm.displayName);
         setBio(editForm.bio);
         setAvatarUrl(editForm.avatarUrl);
+        setBannerUrl(editForm.bannerUrl);
+        setIsPublic(editForm.isPublic);
         setIsEditingProfile(false);
         setAdSuccess("✅ Profile successfully updated!");
         setTimeout(() => setAdSuccess(null), 4000);
@@ -225,28 +246,57 @@ export function Profile() {
   const currentVipMeta = VIP_TIERS.find(t => t.id === activeVipTier) || VIP_TIERS[0];
 
   return (
-    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-5xl mx-auto">
-      {/* Profile Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-border pb-6">
-        <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-mono font-bold uppercase tracking-wider mb-1">
-            <Sparkles className="w-3.5 h-3.5" /> Pro Forecaster • {currentVipMeta.name}
+    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-5xl mx-auto pb-24">
+      {/* Dynamic Profile Banner */}
+      <div className="relative w-full h-48 sm:h-64 rounded-3xl overflow-hidden border border-border/50 shadow-xl group">
+        {bannerUrl ? (
+          <img src={bannerUrl} alt="Profile Banner" className="w-full h-full object-cover" />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-r from-purple-900/40 via-indigo-900/40 to-blue-900/40 flex items-center justify-center">
+            <span className="text-muted-foreground/50 font-bold tracking-widest uppercase text-sm">No Banner Set</span>
           </div>
-          <h1 className="text-3xl font-black tracking-tight text-foreground">Portfolio, VIP Tiers & Gifting Hub</h1>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90"></div>
+        <div className="absolute bottom-4 left-6 right-6 flex justify-between items-end">
+          <div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/20 backdrop-blur-md text-primary text-xs font-mono font-bold uppercase tracking-wider mb-2 border border-primary/30">
+              <Sparkles className="w-3.5 h-3.5" /> Level {level} • {xp} XP
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white drop-shadow-md">
+              {displayName}
+            </h1>
+            <p className="text-muted-foreground font-medium mt-1">@{username}</p>
+          </div>
         </div>
-        <div className="flex gap-2">
-          <Button 
-            onClick={() => setIsGiftingOpen(true)} 
-            className="gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-xs shadow-md"
-          >
-            <Gift className="w-4 h-4" />
-            Gift VIP Subscription
-          </Button>
-          <Button variant="outline" size="sm" className="gap-2 text-muted-foreground hover:text-foreground">
-            <LogOut className="w-4 h-4" />
-            Log Out
-          </Button>
-        </div>
+      </div>
+
+      {/* Tab Navigation */}
+      <div className="flex overflow-x-auto hide-scrollbar gap-2 p-1 bg-muted/20 border border-border/40 rounded-2xl">
+        <button onClick={() => setActiveTab('overview')} className={`flex-1 min-w-[120px] flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm transition-all ${activeTab === 'overview' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted/30'}`}>
+          <LayoutDashboard className="w-4 h-4" /> Overview
+        </button>
+        <button onClick={() => setActiveTab('wallet')} className={`flex-1 min-w-[120px] flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm transition-all ${activeTab === 'wallet' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted/30'}`}>
+          <Wallet className="w-4 h-4" /> Wallet & History
+        </button>
+        <button onClick={() => setActiveTab('settings')} className={`flex-1 min-w-[120px] flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm transition-all ${activeTab === 'settings' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted/30'}`}>
+          <Settings className="w-4 h-4" /> Settings
+        </button>
+        <button onClick={() => setActiveTab('security')} className={`flex-1 min-w-[120px] flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm transition-all ${activeTab === 'security' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted/30'}`}>
+          <Shield className="w-4 h-4" /> Security
+        </button>
+        <button onClick={() => setActiveTab('limits')} className={`flex-1 min-w-[120px] flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm transition-all ${activeTab === 'limits' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-muted/30'}`}>
+          <ShieldAlert className="w-4 h-4" /> Limits
+        </button>
+      </div>
+
+      <div className="flex gap-2 justify-end mb-4">
+        <Button 
+          onClick={() => setIsGiftingOpen(true)} 
+          className="gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-xs shadow-md"
+        >
+          <Gift className="w-4 h-4" />
+          Gift VIP
+        </Button>
       </div>
 
       {/* Success / Notification Banner */}
@@ -257,10 +307,13 @@ export function Profile() {
         </div>
       )}
 
-      {/* Advanced Analytics & Portfolio Engine */}
-      <div className="bg-gradient-to-br from-card via-card/90 to-primary/10 border border-border rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
-        <div className="flex flex-col xl:flex-row gap-8">
-          {/* Left: User Identity */}
+      {/* TAB CONTENT: OVERVIEW */}
+      {activeTab === 'overview' && (
+        <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2">
+          {/* Advanced Analytics & Portfolio Engine */}
+          <div className="bg-gradient-to-br from-card via-card/90 to-primary/10 border border-border rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+            <div className="flex flex-col xl:flex-row gap-8">
+              {/* Left: User Identity */}
           <div className="flex flex-col gap-5 xl:w-1/3">
             <div className="flex items-center gap-5">
               {avatarUrl ? (
@@ -391,11 +444,16 @@ export function Profile() {
             );
           })}
         </div>
-      </div>
+          </div>
+        </div>
+      )}
 
-      {/* Free Virtual Cash Refill / Daily Reward Engine */}
-      <div className="space-y-4 pt-4 border-t border-border/60">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2">
+      {/* TAB CONTENT: WALLET & HISTORY */}
+      {activeTab === 'wallet' && (
+        <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2">
+          {/* Free Virtual Cash Refill / Daily Reward Engine */}
+          <div className="space-y-4">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2">
           <div>
             <h3 className="text-xl font-extrabold text-foreground flex items-center gap-2">
               <Gift className="w-5 h-5 text-primary" />
@@ -538,12 +596,124 @@ export function Profile() {
           </div>
         </div>
       </div>
+        </div>
+      )}
 
-      {/* Gift VIP Subscription Modal */}
-      <Dialog
-        isOpen={isGiftingOpen}
-        onClose={() => setIsGiftingOpen(false)}
-        title="🎁 Gift a VIP Subscription"
+      {/* TAB CONTENT: SETTINGS */}
+      {activeTab === 'settings' && (
+        <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2">
+          <div className="bg-card border border-border rounded-3xl p-6 shadow-sm">
+            <h3 className="text-xl font-extrabold mb-6 flex items-center gap-2"><Settings className="w-5 h-5 text-primary" /> Profile Settings</h3>
+            <form onSubmit={handleSaveProfile} className="space-y-4 max-w-2xl">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold uppercase text-muted-foreground">Username (Unique Handle)</label>
+                  <Input value={editForm.username} onChange={e => setEditForm(prev => ({...prev, username: e.target.value}))} />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold uppercase text-muted-foreground">Display Name</label>
+                  <Input value={editForm.displayName} onChange={e => setEditForm(prev => ({...prev, displayName: e.target.value}))} />
+                </div>
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold uppercase text-muted-foreground">Bio / Status</label>
+                <textarea value={editForm.bio} onChange={e => setEditForm(prev => ({...prev, bio: e.target.value}))} rows={3} className="w-full p-3 rounded-xl bg-background border border-border text-xs font-medium focus:outline-none focus:border-primary resize-none" />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold uppercase text-muted-foreground">Avatar URL</label>
+                <Input value={editForm.avatarUrl} onChange={e => setEditForm(prev => ({...prev, avatarUrl: e.target.value}))} />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold uppercase text-muted-foreground">Banner Background URL</label>
+                <Input value={editForm.bannerUrl} onChange={e => setEditForm(prev => ({...prev, bannerUrl: e.target.value}))} />
+              </div>
+              <div className="flex items-center gap-2 pt-2">
+                <input type="checkbox" id="isPublic" checked={editForm.isPublic} onChange={e => setEditForm(prev => ({...prev, isPublic: e.target.checked}))} className="rounded border-border bg-background" />
+                <label htmlFor="isPublic" className="text-sm font-semibold">Make Profile Public (Show stats & portfolio)</label>
+              </div>
+              <Button type="submit" disabled={isSaving} className="mt-4">{isSaving ? "Saving..." : "Save Settings"}</Button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* TAB CONTENT: SECURITY */}
+      {activeTab === 'security' && (
+        <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2">
+          <div className="bg-card border border-border rounded-3xl p-6 shadow-sm">
+            <h3 className="text-xl font-extrabold mb-6 flex items-center gap-2"><Shield className="w-5 h-5 text-primary" /> Security & Devices</h3>
+            
+            <div className="space-y-6">
+              <div className="flex items-center justify-between p-4 border rounded-2xl bg-muted/10">
+                <div className="flex items-center gap-4">
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${twoFactorEnabled ? 'bg-success/20 text-success' : 'bg-destructive/20 text-destructive'}`}>
+                    <Fingerprint className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm">Two-Factor Authentication (2FA)</h4>
+                    <p className="text-xs text-muted-foreground mt-0.5">{twoFactorEnabled ? 'Your account is highly secure.' : 'Not enabled. We highly recommend enabling 2FA.'}</p>
+                  </div>
+                </div>
+                <Button variant={twoFactorEnabled ? "outline" : "default"} size="sm">{twoFactorEnabled ? "Manage" : "Enable 2FA"}</Button>
+              </div>
+
+              <div className="border rounded-2xl overflow-hidden">
+                <div className="p-4 bg-muted/20 border-b border-border/50 flex justify-between items-center">
+                  <h4 className="font-bold text-sm">Active Sessions</h4>
+                  <Button variant="outline" size="sm" className="text-[10px] h-7 text-destructive hover:bg-destructive/10 hover:text-destructive border-destructive/30">Log Out All Devices</Button>
+                </div>
+                <div className="divide-y divide-border/50">
+                  <div className="p-4 flex items-center justify-between bg-background">
+                    <div className="flex items-center gap-3">
+                      <Smartphone className="w-4 h-4 text-muted-foreground" />
+                      <div>
+                        <div className="text-xs font-bold">iPhone 14 Pro (Current)</div>
+                        <div className="text-[10px] text-muted-foreground">San Francisco, CA • IP: 192.168.1.1</div>
+                      </div>
+                    </div>
+                    <span className="text-[10px] font-bold text-success bg-success/10 px-2 py-1 rounded-full">Active Now</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* TAB CONTENT: LIMITS */}
+      {activeTab === 'limits' && (
+        <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2">
+          <div className="bg-card border border-border rounded-3xl p-6 shadow-sm">
+            <h3 className="text-xl font-extrabold mb-6 flex items-center gap-2"><ShieldAlert className="w-5 h-5 text-orange-500" /> Responsible Gaming & Limits</h3>
+            <p className="text-sm text-muted-foreground mb-6">Manage your play time and virtual spending to keep predicting fun and healthy.</p>
+            
+            <div className="space-y-6">
+              <div className="flex items-center justify-between p-4 border rounded-2xl bg-muted/10">
+                <div>
+                  <h4 className="font-bold text-sm">Self-Imposed Wager Limits</h4>
+                  <p className="text-xs text-muted-foreground mt-0.5">Cap the maximum amount of virtual coins you can bet per day.</p>
+                </div>
+                <Button variant="outline" size="sm">Set Limits</Button>
+              </div>
+
+              <div className="flex items-center justify-between p-4 border rounded-2xl bg-muted/10">
+                <div>
+                  <h4 className="font-bold text-sm">Cooling-Off Period</h4>
+                  <p className="text-xs text-muted-foreground mt-0.5">Freeze profile access and halt all gameplay for 24 hours to 30 days.</p>
+                </div>
+                <Button variant="outline" size="sm" className="text-orange-500 border-orange-500/30 hover:bg-orange-500/10">Take a Break</Button>
+              </div>
+
+              <div className="pt-4 border-t border-border/50">
+                <Button variant="ghost" size="sm" className="text-xs text-destructive hover:bg-destructive/10">Permanently Delete Account</Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Gifting Dialog */}
+      <Dialog isOpen={isGiftingOpen} onClose={() => setIsGiftingOpen(false)} title="Gift VIP Subscription">
         description="The ultimate legal tournament prize! Reward tournament winners or syndicate friends with organizer superpowers."
       >
         <form onSubmit={handleSendGift} className="space-y-4 pt-2">
@@ -605,53 +775,7 @@ export function Profile() {
         </form>
       </Dialog>
 
-      {/* Edit Profile Modal */}
-      <Dialog isOpen={isEditingProfile} onClose={() => setIsEditingProfile(false)} title="Edit Profile Settings">
-        <form onSubmit={handleSaveProfile} className="space-y-4 pt-2">
-          <div className="space-y-1.5">
-            <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Display Name</label>
-            <Input 
-              value={editForm.displayName}
-              onChange={(e) => setEditForm(prev => ({ ...prev, displayName: e.target.value }))}
-              placeholder="Your username"
-              required
-              className="h-10 text-sm font-semibold"
-            />
-          </div>
 
-          <div className="space-y-1.5">
-            <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Bio / Status</label>
-            <textarea 
-              value={editForm.bio}
-              onChange={(e) => setEditForm(prev => ({ ...prev, bio: e.target.value }))}
-              placeholder="Tell us your trading style..."
-              rows={3}
-              maxLength={160}
-              className="w-full p-3 rounded-xl bg-background border border-border text-xs font-medium focus:outline-none focus:border-primary resize-none"
-            />
-          </div>
-
-          <div className="space-y-1.5">
-            <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Avatar Image URL (Optional)</label>
-            <Input 
-              value={editForm.avatarUrl}
-              onChange={(e) => setEditForm(prev => ({ ...prev, avatarUrl: e.target.value }))}
-              placeholder="https://example.com/avatar.jpg"
-              className="h-10 text-sm"
-            />
-            <p className="text-[10px] text-muted-foreground">Paste a direct link to an image to update your profile picture.</p>
-          </div>
-
-          <div className="pt-3 flex justify-end gap-2 border-t border-border/40">
-            <Button type="button" variant="outline" onClick={() => setIsEditingProfile(false)} className="h-10 px-5 font-semibold text-xs">
-              Cancel
-            </Button>
-            <Button type="submit" disabled={isSaving} className="h-10 px-6 font-bold bg-primary hover:bg-primary/90 text-primary-foreground text-xs shadow-md">
-              {isSaving ? "Saving..." : "Save Profile"}
-            </Button>
-          </div>
-        </form>
-      </Dialog>
     </div>
   );
 }
