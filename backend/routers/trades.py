@@ -1,8 +1,13 @@
+import logging
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel
 import uuid
 from database import supabase
 from dependencies import get_current_user_id
+from core.amm import CPMMEngine
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 router = APIRouter(prefix="/api/trades", tags=["trades"])
 
@@ -44,37 +49,21 @@ def place_trade(req: TradeRequest, user_id: str = Depends(get_current_user_id)):
         group_id = m_res.data[0]["group_id"]
         current_vol = float(m_res.data[0]["volume"])
         
-        # AMM CPMM LOGIC (x * y = k)
+        # AMM CPMM LOGIC using dedicated service layer
         all_outcomes = supabase.table("outcomes").select("id, shares_pool").eq("market_id", req.market_id).execute()
         if not all_outcomes.data:
+            logger.error(f"Market outcomes not found for market_id: {req.market_id}")
             raise HTTPException(status_code=404, detail="Market outcomes not found")
             
-        target_outcome = next((o for o in all_outcomes.data if o["id"] == req.outcome_id), None)
-        if not target_outcome:
-            raise HTTPException(status_code=404, detail="Outcome not found")
-            
-        # Calculate K (constant product)
-        k = 1.0
-        for o in all_outcomes.data:
-            k *= float(o["shares_pool"])
-            
-        # Distribute the $amount invested into all *other* pools (since the AMM mints paired shares and keeps the rest)
-        new_other_pools = {}
-        for o in all_outcomes.data:
-            if o["id"] != req.outcome_id:
-                new_other_pools[o["id"]] = float(o["shares_pool"]) + req.amount
-                
-        # Calculate new target pool to maintain K
-        new_k_partial = 1.0
-        for val in new_other_pools.values():
-            new_k_partial *= val
-            
-        new_target_pool = k / new_k_partial
-        shares_bought = float(target_outcome["shares_pool"]) - new_target_pool
-        
-        if shares_bought <= 0:
-            raise HTTPException(status_code=400, detail="Trade amount too small or slippage too high")
-        shares_bought = round(shares_bought, 2)
+        try:
+            shares_bought, updated_pools = CPMMEngine.calculate_trade(
+                outcomes=[{"id": str(o["id"]), "shares_pool": float(o["shares_pool"])} for o in all_outcomes.data],
+                target_outcome_id=req.outcome_id,
+                amount=req.amount
+            )
+        except ValueError as e:
+            logger.warning(f"Trade rejected: {e}")
+            raise HTTPException(status_code=400, detail=str(e))
         
         # 3. Get user balance in this group
         if user_id != "00000000-0000-0000-0000-000000000000":
@@ -105,17 +94,12 @@ def place_trade(req: TradeRequest, user_id: str = Depends(get_current_user_id)):
         supabase.table("markets").update({"volume": current_vol + req.amount}).eq("id", req.market_id).execute()
         
         # 6. Adjust odds and liquidity pools using the AMM invariant
-        updated_pools = new_other_pools.copy()
-        updated_pools[req.outcome_id] = new_target_pool
-        
-        # Calculate new exact probabilities (inverse proportionality)
-        inv_sum = sum(1.0 / p for p in updated_pools.values())
+        prices = CPMMEngine.calculate_prices(updated_pools)
         
         for o_id, pool_val in updated_pools.items():
-            new_price = (1.0 / pool_val) / inv_sum
             supabase.table("outcomes").update({
                 "shares_pool": round(pool_val, 4),
-                "current_price": round(new_price, 4)
+                "current_price": prices[o_id]
             }).eq("id", o_id).execute()
                 
         return {
@@ -129,5 +113,5 @@ def place_trade(req: TradeRequest, user_id: str = Depends(get_current_user_id)):
     except HTTPException as he:
         raise he
     except Exception as e:
-        print(f"Error placing trade: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error(f"Error placing trade: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail="Internal server error")
